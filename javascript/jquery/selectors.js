@@ -2,7 +2,7 @@
 
 function basic_selectors() {
     // by id: 
-    $("#timer-bar");
+    $("#timer-bar").css("border","3px solid blue");
     // by class: 
     $(".handle").css("border","3px solid red");
     // by tag name: 
@@ -14,10 +14,10 @@ function basic_selectors() {
 }
 
 function hierarchy_selectors() {
+    // child: 
+    $("ul.topnav > li").css("border", "3px double red");
     // descendant: 
     $("form input").css("border", "2px dotted blue");
-    // child: 
-    $("#main > *").css("border", "3px double red");
     // next to: 
     $("label + input").css("color", "blue").val("Labeled!");
     // siblings: 
@@ -66,14 +66,20 @@ function visibility_filters() {
 function attribute_filters() {
     // has attribute: 
     $("div[id]")
-    // has this value: 
+    // equals this value: 
     $("input[name='newsletter']").next().text(" is newsletter");
-    // does not have this value: 
+    // does not equal this value: 
     $("input[name!=newsletter]").next().append("<b>; not newsletter</b>");
     // starts with: 
     $("input[name^='news']").val("news here!");
     // ends with: 
     $("input[name$='letter']").val("a letter");
+    // contains string:
+    $('input[name*="man"]').val('has man in it!');
+    // contains word:
+    $('input[name~="man"]').val('mr. man is in it!');
+    // equals, or starts with plus hyphen ("en" or "en-us")
+    $('a[hreflang|="en"]').css('border','3px dotted green');
     // multiple attributes: 
     $("input[id][name$='man']").val("only this one");
 }

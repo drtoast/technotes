@@ -1,0 +1,8 @@
+div,span {
+  width: 100px;
+  height: 40px;
+  float:left;
+  padding: 10px;
+  margin: 10px;
+  background-color: #EEEEEE;
+}

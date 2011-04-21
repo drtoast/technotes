@@ -1,0 +1,230 @@
+/*
+http://sass-lang.com/
+
+1. gem install haml
+2. sass --watch sass.scss:sass.css
+*/
+
+
+/*** NESTING SELECTORS: style.scss ***/
+
+#navbar {
+  width: 80%;
+  height: 23px;
+
+  ul { list-style-type: none; }
+  li {
+    float: left;
+    a { font-weight: bold; }
+  }
+}
+
+/* output to style.css */
+
+#navbar {
+  width: 80%;
+  height: 23px; }
+  #navbar ul {
+    list-style-type: none; }
+  #navbar li {
+    float: left; }
+    #navbar li a {
+      font-weight: bold; }
+
+
+/*** NESTING PROPERTIES: style.scss ***/
+
+.fakeshadow {
+  border: {
+    style: solid;
+    left: {
+      width: 4px;
+      color: #888;
+    }
+    right: {
+      width: 2px;
+      color: #ccc;
+    }
+  }
+  
+/* output to style.css */
+
+.fakeshadow {
+  border-style: solid;
+  border-left-width: 4px;
+  border-left-color: #888;
+  border-right-width: 2px;
+  border-right-color: #ccc; }
+
+
+/*** VARIABLES: style.scss ***/
+
+$main-color: #ce4dd6;
+$style: solid;
+
+#navbar {
+  border-bottom: {
+    color: $main-color;
+    style: $style;
+  }
+}
+
+a {
+  color: $main-color;
+  &:hover { border-bottom: $style 1px; }
+}
+
+/* output to style.css */
+
+#navbar {
+  border-bottom-color: #ce4dd6;
+  border-bottom-style: solid; }
+
+a {
+  color: #ce4dd6; }
+  a:hover {
+    border-bottom: solid 1px; }
+
+
+/*** FUNCTIONS: style.scss ***/
+
+#navbar {
+  $navbar-width: 800px;
+  $items: 5;
+  $navbar-color: #ce4dd6;
+
+  width: $navbar-width;
+  border-bottom: 2px solid $navbar-color;
+
+  li {
+    float: left;
+    width: $navbar-width/$items - 10px;
+
+    background-color:
+      lighten($navbar-color, 20%);
+    &:hover {
+      background-color:
+        lighten($navbar-color, 10%);
+    }
+  }
+}
+
+/* output to style.css */
+
+#navbar {
+  width: 800px;
+  border-bottom: 2px solid #ce4dd6; }
+  #navbar li {
+    float: left;
+    width: 150px;
+    background-color: #e5a0e9; }
+    #navbar li:hover {
+      background-color: #d976e0; }
+
+
+/*** INTERPOLATION: style.scss ***/
+
+$side: top;
+$radius: 10px;
+
+.rounded- {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+/* output to style.css */
+
+.rounded-top {
+  border-top-radius: 10px;
+  -moz-border-radius-top: 10px;
+  -webkit-border-top-radius: 10px; }
+  
+
+/*** MIXINS: style.scss ***/
+
+@mixin rounded-top {
+  $side: top;
+  $radius: 10px;
+
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+#navbar li { @include rounded-top; }
+#footer { @include rounded-top; }
+
+/* output to style.css */
+
+#navbar li {
+  border-top-radius: 10px;
+  -moz-border-radius-top: 10px;
+  -webkit-border-top-radius: 10px; }
+
+#footer {
+  border-top-radius: 10px;
+  -moz-border-radius-top: 10px;
+  -webkit-border-top-radius: 10px; }
+  
+
+/*** MIXINS WITH ARGUMENTS: style.scss ***/
+
+@mixin rounded($side, $radius: 10px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+#navbar li { @include rounded(top); }
+#footer { @include rounded(top, 5px); }
+#sidebar { @include rounded(left, 8px); }
+
+/* output to style.css */
+
+#navbar li {
+  border-top-radius: 10px;
+  -moz-border-radius-top: 10px;
+  -webkit-border-top-radius: 10px; }
+
+#footer {
+  border-top-radius: 5px;
+  -moz-border-radius-top: 5px;
+  -webkit-border-top-radius: 5px; }
+
+#sidebar {
+  border-left-radius: 8px;
+  -moz-border-radius-left: 8px;
+  -webkit-border-left-radius: 8px; }
+
+/*** IMPORT ***/
+
+/* _rounded.scss */
+@mixin rounded($side, $radius: 10px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+  -webkit-border-#{$side}-radius: $radius;
+}
+
+/* style.scss */
+@import "rounded";
+#navbar li { @include rounded(top); }
+#footer { @include rounded(top, 5px); }
+#sidebar { @include rounded(left, 8px); }
+
+/* output to style.css */
+
+#navbar li {
+  border-top-radius: 10px;
+  -moz-border-radius-top: 10px;
+  -webkit-border-top-radius: 10px; }
+
+#footer {
+  border-top-radius: 5px;
+  -moz-border-radius-top: 5px;
+  -webkit-border-top-radius: 5px; }
+
+#sidebar {
+  border-left-radius: 8px;
+  -moz-border-radius-left: 8px;
+  -webkit-border-left-radius: 8px; }

@@ -6,11 +6,7 @@
 
 ## enable php in apache
 
-    emacs /etc/apache2/httpd.conf
-    
-uncomment:
-    
-    LoadModule php5_module        libexec/apache2/libphp5.so
+    see technotes/apache/httpd.conf.md
     
 ## copy and fix php.ini
 
@@ -44,4 +40,17 @@ change site url in db for development:
 
 http://drtoast/wp-admin/install.php
 
-## enjoy!
+## install wordpress-importer
+
+* copy wordpress-importer folder into plugins dir
+* enable plugin
+* upload posts
+
+## configure akismet 
+
+add api key
+
+## edit .htaccess 
+
+add rewrite rules
+

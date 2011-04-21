@@ -53,6 +53,7 @@ function getting_and_changing_style() {
     $("p:first").innerWidth();
     // get coordinates of first element, relative to the document
     $("p:last").offset();
+    /// TODO: add rest of methods
 }
 
 

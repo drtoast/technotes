@@ -12,6 +12,8 @@ then open http://localhost:28017/
 
 # install mongoid
 
+http://railscasts.com/episodes/238-mongoid
+
     gem install mongoid
 
 # start daemon 

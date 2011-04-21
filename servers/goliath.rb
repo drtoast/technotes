@@ -1,0 +1,1 @@
+# goliath (evented ruby 1.9) - http://goliath.io

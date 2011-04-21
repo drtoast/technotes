@@ -1,0 +1,1 @@
+# capybara (browser testing) - https://github.com/jnicklas/capybara

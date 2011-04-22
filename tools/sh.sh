@@ -65,6 +65,15 @@ test ! string1 = string2        # not
 test expression1 -a expression2 # and
 test expression1 -o expression2 # or
 
+echo "TEST: boolean"
+var=1
+if [ $var -eq 1 ]
+then
+    echo "true"
+else
+    echo "false"
+fi
+
 echo "CONTROL: for"
 for i in 1 2 3 4 5
 do

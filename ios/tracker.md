@@ -19,17 +19,18 @@ cp 4096c9ec676f2847dc283405900e284a7c815836 ~/Desktop/consolidated.db
 
 # Browse db in Sqlite3
 
-sqlite3 consolidated.db
-
-sqlite> .tables
-sqlite> .schema CellLocation
-sqlite> select Timestamp, Latitude, Longitude, Confidence from CellLocation order by Timestamp desc limit 1000;
-sqlite> .quit
+    sqlite3 consolidated.db
+    
+    sqlite> .tables
+    sqlite> .schema CellLocation
+    sqlite> select Timestamp, Latitude, Longitude, Confidence from CellLocation order by Timestamp desc limit 1000;
+    sqlite> .quit
 
 # Export data
 
-sqlite3 consolidated.db
-
-sqlite> .output location.txt
-sqlite> select * from CellLocation
-sqlite> .quit
+    sqlite3 consolidated.db
+    
+    sqlite> .output location.txt
+    sqlite> select * from CellLocation
+    sqlite> .quit
+    

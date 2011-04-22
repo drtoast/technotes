@@ -1,0 +1,24 @@
+<!-- write to a web page: -->
+<script type="text/javascript">
+  document.write("Hello World!")
+</script>
+
+<!-- load an external script: -->
+<head>
+  <script src="javascipt.js"></script>
+</head>
+
+<!-- onClick -->
+<form>
+  <input type="button" value="Click me!" onclick="displaymessage()" >
+</form>
+
+<!-- onLoad, onUnload: triggered when a page finishes loading or user leaves page -->
+<body onload="loadpage()"></body>
+<body onload="window.alert('welcome to my home page!');"></body>
+
+<!-- onFocus, onBlur, onChange: triggered when a form field is selected, deselected, or changed -->
+<input type="text" size="30" id="email" onchange="checkEmail()">
+
+<!-- onSubmit: triggered when a form is submitted -->
+<form method="post" action="xxx.htm" onsubmit="return checkForm()">

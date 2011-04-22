@@ -1,0 +1,138 @@
+/** MARGIN: adds space outside the border of the element */
+{
+    margin: 5 5 5 5;  /* top left bottom right */
+    margin: 2px;      /* same margin for all sides */
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+/** PADDING: adds space inside the border of the element */
+{
+    padding: 5 5 5 5;   /* top left bottom right */
+    padding: 2px;       /* same padding for all sides*/
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
+
+/** TEXT: specify text properties */
+{
+    color: #ffffff;
+    white-space: normal;        /* normal,pre,nowrap; */
+    line-height: normal;        /* normal,10,120%; distance between lines*/
+    letter-spacing: normal;     /* normal,5; space between characters */
+    word-spacing: normal;       /* length,5; space between words */
+    text-align: left;           /* left,right,center,justify */
+    text-decoration: none;      /* none,underline,overline,line-through,blink; */
+    text-indent: 10;            /* 5,150%; indents the first line of text in an element */
+    text-transform: none;       /* none,capitalize,uppercase,lowercase; */
+}
+
+/** FONT: change font family, boldness, size, style */
+{
+    font: bold serif 12px;      /* style variant weight size family caption icon menu msgbox smallcap status; */
+    font-style: normal;         /* normal,italic,oblique; */
+    font-variant: normal;       /* normal,small-caps; */
+    font-weight: normal;        /* normal,bold,bolder,lighter,100...900; */
+    font-size: 12px;            /* 12px,12pt */
+    font-family: "Arial",sans-serif; /* prioritized list of font family names and/or generic family names */
+}
+
+/** BORDER: set the style and color of an element's border */
+{
+    border: 5px solid red;          /* width style color; */
+    border-bottom: 5px solid red;   /* width style color; */
+    border-left: 5px solid red;     /* width style color; */
+    border-right: 5px solid red;    /* width style color; */
+    border-top: 5px solid red;      /* width style color; */
+    border-color: #CCCCCC;          /* red,#ff0000,rgb(255,0,0) */
+    border-width: 5px;              /* 5px,thin,medium,thick */
+    border-style: solid;            /* top right bottom left;  none,hidden,dotted,dashed,solid,double,groove,ridge,inset,outset; */
+    border-top-style: dotted;
+    border-right-style: solid;
+    border-bottom-style: dotted;
+    border-left-style: solid;
+}
+
+/** BACKGROUND: set the background color (image, etc) for an element */
+
+{
+    background: #ffffff "blah.jpg"; /* background-color background-image background-repeat background-attachment background-position; */
+    background: #ffffff;            /* background-color */
+    background-attachment: scroll;  /* scroll,fixed; */
+    background-color: #ffffff;
+    background-image: url(//images/blah.jpg);
+    background-repeat: repeat;      /* repeat|repeat-x|repeat-y|no-repeat; */
+    background-position: top left;  /*top left|top center|top right|center left|center right|bottom left|bottom center|bottom right;*/
+    background-position: 10% 10%;   /* x% y%; */
+    background-position: 10px 20px;
+}
+
+/** POSITIONING: set the position of the element */
+
+{
+    position: static;       /*static|relative|absolute|fixed;*/
+    bottom: fixed;          /* auto,5%,fixed; */
+    left: fixed;            /* auto,5%,fixed; */
+    right: fixed;           /* auto,5%,fixed; */
+    top: fixed;             /* auto,5%,fixed; */
+    clip: auto;             /* shape|auto; */
+    overflow: visible;      /* visible|hidden|scroll|auto; (what to do if element's content overflows) */
+    vertical-align: top;    /* baseline|sub|super|top|text-top|middle|bottom|text-bottom|5px|10%;*/
+    z-index: 50;            /* auto,51 */
+    float: left;            /* left|right|none; (sets where an image or text will appear in another element)*/
+    clear: left;            /* left|right|both|none; (specify the sides of an element where other floating elements are not allowed) */
+    display: none;          /* none|inline|block|list-item|run-in|compact|marker|table|inline-table...*/
+    display: block;         /* line break before/after the element */
+    display: inline;        /* default, no line break before/after */
+}
+
+/** SIZE: set the size of elements */
+{
+    height: 5px;            /*5px|20%;*/
+    width: 5px;             /*5px|20%;*/
+    max-height: none;       /*none|5px|20%;*/
+    max-width: none;        /*none|5px|20%;*/
+    min-height: none;       /*none|5px|20%;*/
+    min-width: none;        /*none|5px|20%;*/
+}
+
+/** APPEARANCE: various element appearance behaviors */
+{
+    cursor: pointer;        /* url|auto|crosshair|default|pointer|move|...*/
+    visibility: hidden;     /* visible|hidden|collapse;*/
+}
+
+/** GENERATED CONTENT */
+{
+    content: "hello";
+    content: url(//path/to/img.jpg);
+    content: counter(name);
+    content: open-quote; /*(Generates content in a document.  Used with the :before and :after pseudo-elements.)*/
+    counter-increment: identifier increment;
+    counter-reset: identifier value;
+}
+
+
+/** PSEUDO-CLASSES */
+
+{
+    :active (activated element)
+    :focus (element that has focus)
+    :hover (mouse hovering over element)
+    :link (unvisited link)
+    :visited (visited link)
+    :first-child (first child of some other element)
+}
+
+/** PSEUDO-ELEMENTS */
+
+{
+    :first-letter: (first letter of text)
+    :first-line: (first line of text)
+    :before (inserts some content before an element)
+    :after (inserts some content after an element)
+}

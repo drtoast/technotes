@@ -49,7 +49,10 @@ end
 ### Run Redis Server
 # /usr/local/bin/redis-server /data/apps/smp/current/config/resque/resque.redis.conf
 
-### Run Resque Workers
+### Run Resque workers in foreground:
+# RAILS_ENV=development QUEUE=authoring rake resque:work
+
+### Run Resque workers via God:
 # cd smp
 # RAILS_ENV=development RAILS_ROOT=/users/jamesreynolds/smp QUEUE=authoring WORKERS=2 god -c config/resque/resque.god
 
@@ -61,4 +64,4 @@ end
 ### Send a Job to the Queue
 # cd smp
 # script/console
-Resque.enque(ResqueTest, "hello world")
+Resque.enqueue(ResqueTest, "hello world")

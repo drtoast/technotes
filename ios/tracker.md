@@ -22,7 +22,7 @@ cp 4096c9ec676f2847dc283405900e284a7c815836 ~/Desktop/consolidated.db
     sqlite3 consolidated.db
     
     sqlite> .tables
-    sqlite> .schema CellLocation
+    sqlite> .schema CellLocation;
     sqlite> select Timestamp, Latitude, Longitude, Confidence from CellLocation order by Timestamp desc limit 1000;
     sqlite> .quit
 
@@ -31,6 +31,21 @@ cp 4096c9ec676f2847dc283405900e284a7c815836 ~/Desktop/consolidated.db
     sqlite3 consolidated.db
     
     sqlite> .output location.txt
-    sqlite> select * from CellLocation
+    sqlite> select * from CellLocation;
     sqlite> .quit
     
+# Schema
+
+* MCC INTEGER,
+* MNC INTEGER,
+* LAC INTEGER,
+* CI INTEGER,
+* Timestamp FLOAT, // seconds since 1 Jan 2001
+* Latitude FLOAT, 
+* Longitude FLOAT, 
+* HorizontalAccuracy FLOAT, // 50-300
+* Altitude FLOAT, 
+* VerticalAccuracy FLOAT, 
+* Speed FLOAT, 
+* Course FLOAT, 
+* Confidence INTEGER, // 0, 50, 60, 65, 68, or 70

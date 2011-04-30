@@ -1,4 +1,16 @@
-# Running on dreamhost:
+### BASIC APP
+
+# myapp.rb
+require 'sinatra'
+require 'haml'
+
+get '/' do
+  'Hello world!'
+end
+
+
+
+### Running on dreamhost:
 
 # http://stackoverflow.com/questions/1829973/deploying-sinatra-app-on-dreamhost-passenger-with-custom-gems
 

@@ -1,4 +1,5 @@
 # rspec - BDD
+# http://www.pragprog.com/titles/achbd/the-rspec-book
 
 # bowling_spec.rb
 require 'bowling'

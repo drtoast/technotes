@@ -1,5 +1,20 @@
 // http://api.jquery.com/category/selectors/
 
+/*
+
+All Elements	            *
+All P Elements              p
+All Child Elements	        p > *
+Descendent Element          p table
+Element By ID	            #foo
+Element By Class	        .foo
+Element With Attribute	    *[title]
+First Child of All P	    p > *:first-child
+All P with an A child	    Not possible
+Next Element	            p + *
+
+*/
+
 function basic_selectors() {
     // by id: 
     $("#timer-bar").css("border","3px solid blue");

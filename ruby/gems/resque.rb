@@ -1,15 +1,20 @@
-### Setup
+=begin rdoc
+=== SETUP:
 
-# install redis
+brew install redis
+gem install redis redis-namespace yajl-ruby
+=end
 
-# git clone git://github.com/antirez/redis.git
-# cd redis
-# cd src; make
-# make install
-## OR:
-# brew install redis
+=begin rdoc
+=== CONFIGURATION:
 
-# gem install redis redis-namespace yajl-ruby
+add to config/resque/resque.redis.conf: (used by redis server)
+
+port 6378           # use this port (default is 6379)
+daemonize yes       # run as a daemon
+dbfilename resque-dump.rdb    # the filename for db dump
+dir /usr/local/redis/         # the working directory for db dump
+=end
 
 # add to Gemfile:
 gem "redis",                "2.1.1"
@@ -29,13 +34,6 @@ end
 # add to config/resque/resque.rb: (used by resque-web)
 Resque.redis = 'localhost:6379'
 
-### add to config/resque/resque.redis.conf: (used by redis server)
-# port 6378   # use this port (default is 6379)
-# daemonize yes    # run as a daemon
-# dbfilename resque-dump.rdb    # the filename for db dump
-# dir /usr/local/redis/      # the working directory for db dump
-
-
 ### create a worker:
 class ResqueTest
   @queue = :test
@@ -46,22 +44,41 @@ class ResqueTest
   end
 end
 
-### Run Redis Server
-# /usr/local/bin/redis-server /data/apps/smp/current/config/resque/resque.redis.conf
 
-### Run Resque workers in foreground:
-# RAILS_ENV=development QUEUE=authoring rake resque:work
+=begin rdoc
+=== RUN
 
-### Run Resque workers via God:
-# cd smp
-# RAILS_ENV=development RAILS_ROOT=/users/jamesreynolds/smp QUEUE=authoring WORKERS=2 god -c config/resque/resque.god
+Run Redis server:
+redis-server /path/to/redis.conf
 
-### Run Resque Web Interface
-# cd smp
-# resque-web config/resque/resque.rb
-# http://localhost:5678/
+Run Resque workers in foreground:
+RAILS_ENV=development QUEUE=authoring rake resque:work
+
+=== WEB INTERFACE
+
+resque-web config/resque/resque.rb
+http://localhost:5678/
+=end
 
 ### Send a Job to the Queue
-# cd smp
-# script/console
 Resque.enqueue(ResqueTest, "hello world")
+
+
+=begin rdoc
+=== COMMAND LINE TOOL
+
+resque list -r redis01:6301
+resque remove catproc2:32621:authoring -r redis01:6301
+resque kill catproc2:32621:authoring -r redis01:6301
+
+=== SIGNALS
+
+Resque workers respond to a few different signals:
+
+QUIT - Wait for child to finish processing then exit
+TERM / INT - Immediately kill child then exit
+USR1 - Immediately kill child but don't exit
+USR2 - Don't start to process any new jobs
+CONT - Start to process new jobs again after a USR2
+=end
+

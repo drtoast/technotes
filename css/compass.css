@@ -1,0 +1,72 @@
+/* http://compass-style.org/ */
+
+/*
+HTML:
+
+<div class='example'>
+  <div class='content'>Some great content</div>
+  <div class='sidebar'>A sidebar</div>
+</div>
+
+HAML:
+
+.example
+  .content Some great content
+  .sidebar A sidebar
+*/
+
+
+/* SCSS: */
+@import "compass/css3";
+ 
+.example {
+  @include display-box;
+  @include box-orient(horizontal);
+  @include box-align(stretch);
+  @include box-direction(reverse);
+  height: 200px;
+  width: 100%;
+  .content, .sidebar {
+    padding: 20px; }
+  .content {
+    @include box-flex(4);
+    background-color: #c5c1b4; }
+  .sidebar {
+    @include box-flex(1);
+    background-color: #375f99;
+    margin-right: 1px; } }
+
+
+/* CSS OUTPUT: */
+.example {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  -moz-box-align: stretch;
+  -webkit-box-align: stretch;
+  box-align: stretch;
+  -moz-box-direction: reverse;
+  -webkit-box-direction: reverse;
+  box-direction: reverse;
+  height: 200px;
+  width: 100%;
+}
+.example .content, .example .sidebar {
+  padding: 20px;
+}
+.example .content {
+  -moz-box-flex: 4;
+  -webkit-box-flex: 4;
+  box-flex: 4;
+  background-color: #c5c1b4;
+}
+.example .sidebar {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  background-color: #375f99;
+  margin-right: 1px;
+}

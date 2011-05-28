@@ -1,20 +1,23 @@
 # rspec - BDD
 # http://www.pragprog.com/titles/achbd/the-rspec-book
 
-# bowling_spec.rb
-require 'bowling'
+### BASICS
 
-describe Bowling, "#score" do
-  it "returns 0 for all gutter game" do
-    bowling = Bowling.new
-    20.times { bowling.hit(0) }
-    bowling.score.should == 0
+# game_spec.rb
+require './game'
+describe Game do
+  describe "#score" do
+    it "returns 0 for all gutter game" do
+      game = Game.new
+      20.times { game.roll(0) }
+      game.score.should == 0
+    end
   end
 end
 
-# bowling.rb
-class Bowling
-  def hit(pins)
+# game.rb
+class Game
+  def roll(pins)
   end
 
   def score
@@ -22,17 +25,12 @@ class Bowling
   end
 end
 
-### RUN
-
-# # rspec-2
-# $ rspec bowling_spec.rb --format nested
+# $ rspec game_spec.rb --color --format doc
 # 
-# # rspec-1
-# $ spec bowling_spec.rb --format nested
+# Game
+#   #score
+#     returns 0 for all gutter game
 # 
-# Bowling#score
-#   returns 0 for all gutter game
-# 
-# Finished in 0.007534 seconds
-# 
+# Finished in 0.00057 seconds
 # 1 example, 0 failures
+

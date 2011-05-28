@@ -7,6 +7,13 @@ http://redis.io/
     cd src; make
     make install
     
+# OR, install from homebrew
+
+    brew install redis
+    cd /usr/local/cellar/redis/2.0.4
+    cp io.redis.redis-server.plist ~/Library/LaunchAgents
+    launchctl load -w ~/Library/LaunchAgents/io.redis.redis-server.plist
+    
 # Install gem
 
     gem install redis

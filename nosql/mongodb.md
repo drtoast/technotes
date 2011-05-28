@@ -1,3 +1,5 @@
+http://www.justin.tv/mongodb/videos
+
 # install mongo
 
     http://www.mongodb.org/display/DOCS/Quickstart+OS+X
@@ -33,3 +35,7 @@ with path to db dir (default is /data/db)
     db.foo.save( { a : 1 } )
     db.foo.find()
     
+# Replication
+
+http://engineering.foursquare.com/2011/05/24/fun-with-mongodb-replica-sets/
+

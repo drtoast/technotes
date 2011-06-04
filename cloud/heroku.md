@@ -6,3 +6,14 @@ Handles HTTP-level processing, such as SSL and gzip, then passes connections to 
 
 New instances launched in ~2 seconds using a "compiled slug" of your app (pre-compiled with all dependencies, and pre-tested to make sure it runs)
 
+# Console
+
+heroku console --app wfx
+
+Enter your Heroku credentials.
+Email: you@example.com
+Password: xxxxxx
+Found existing public key: /Users/you/.ssh/id_dsa.pub
+Would you like to associate it with your Heroku account? [Yn] Y
+Uploading ssh public key /Users/you/.ssh/id_dsa.pub
+Ruby console for wfx.heroku.com

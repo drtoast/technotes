@@ -15,13 +15,13 @@ http://progit.org/book/
     git log --stat (show files changed and number of lines)
     git log --pretty=format:"%h %s" --graph (show branch/merge graph)
 
-# stage changes
+# STAGE
 
     git add file.txt (stage one file)
     git add . (stage all changed files)
     git reset HEAD file.txt (unstage file - reset to version in current branch)
 
-# commit changes
+# COMMIT
 
     git commit -m 'your message here' (commit all staged files)
     git commit -a -m 'your message here' (stage and commit all modified files)
@@ -34,25 +34,54 @@ http://progit.org/book/
     git checkout -- file.txt (overwrite working file with latest from repository)
     git mv old_file.txt new_file.txt (rename files)
 
-# tags
+# TAGS
 
     git tag -a v1.4 -m 'my version 1.4' (make an annotated tag for a version)
     git show v1.4 (show info for that tag)
+    
+push tags to remote
 
-# branching
+    git push origin master --tags
 
-    git branch (show all branches, and HEAD/current branch)
-    git branch my-branch (create a new branch)
-    git checkout my-branch (switch to the branch)
-    emacs file1.txt (edit a file in the branch)
-    git commit -a -m 'modified file1 in the branch' (add/commit the change)
-    git checkout master (switch back to the master - working copy of file1.txt reverts)
-    git merge my-branch (merge changes from my-branch back into master)
-    git branch -d my-branch (delete the branch)
-    git branch --merged (show branches that have already been merged)
-    git branch --no-merged (show branches that have not already been merged)
+# BRANCHES
 
-# Remote branches
+show branches
+
+    git branch
+    
+show remote branches
+
+    git branch -r
+
+create a branch
+
+    git branch my-branch
+    
+switch to the branch
+    
+    git checkout my-branch
+
+delete a branch
+
+    git branch -d my-branch
+    
+show branches that have already been merged
+
+    git branch --merged
+
+show branches that have not already been merged
+
+    git branch --no-merged
+    
+create a local branch that tracks a remote branch
+    
+    git branch --track something origin/something
+    
+delete a remote branch
+
+# MERGE
+
+get remote changes and merge changes from my-branch back into master
 
 # clone a remote repo:
 

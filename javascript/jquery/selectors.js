@@ -15,6 +15,13 @@ Next Element	            p + *
 
 */
 
+function within_context() {
+    $('div.foo').click(function() {
+    // only search for 'span' tags within div.foo
+      $('span', this).addClass('bar');
+    });
+}
+
 function basic_selectors() {
     // by id: 
     $("#timer-bar").css("border","3px solid blue");

@@ -197,6 +197,7 @@ $radius: 10px;
   -moz-border-radius-left: 8px;
   -webkit-border-left-radius: 8px; }
 
+
 /*** IMPORT ***/
 
 /* _rounded.scss */
@@ -228,3 +229,23 @@ $radius: 10px;
   border-left-radius: 8px;
   -moz-border-radius-left: 8px;
   -webkit-border-left-radius: 8px; }
+  
+  
+/*** REFERENCING PARENT SELECTORS ***/
+
+.page_form {
+  fieldset {
+    margin-top: 5px;
+    & + fieldset {
+      margin-top: 20px;
+    }
+  }
+}
+
+/* output to style.css */
+.page_form fieldset {
+  margin-top: 5px;
+}
+.page_form fieldset + fieldset {
+  margin-top: 20px;
+}

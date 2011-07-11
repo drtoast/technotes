@@ -65,6 +65,10 @@ delete a branch
 
     git branch -d my-branch
     
+delete a remote branch
+
+    git push origin :my-branch
+    
 show branches that have already been merged
 
     git branch --merged

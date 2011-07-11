@@ -68,3 +68,11 @@ HASHES:
     redis.hgetall(key)              # get hash of values
     redis.hincrby(key, field, int)  # increment the value of field by int
     redis.hdel(key, field)          # delete the field
+    
+LISTS:
+
+    redis.rpush(key, value)     # push a value to the tail of a list
+    redis.lpush(key, value)     # push a value to the head of a list
+    redis.lpop(key, value)      # remove and return the value at the tail of a list
+    redis.rpop(key, value)      # remove and return the value at the head of a list
+    redis.llen(key)             # return the list length

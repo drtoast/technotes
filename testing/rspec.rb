@@ -1,6 +1,11 @@
 # rspec - BDD
 # http://www.pragprog.com/titles/achbd/the-rspec-book
 
+### COMMAND LINE OPTIONS
+# show test and group names:
+# rspec -f d
+
+
 ### BASICS
 
 # game_spec.rb
@@ -13,6 +18,10 @@ describe Game do                          # context
       game.score.should == 0              # matcher
     end
   end
+  pending "not yet implemented" do        # this won't run yet
+    it "should do something" do
+      blah.should == 5
+    end
 end
 
 describe "Examples with no docstrings generate their own:" do
@@ -48,7 +57,8 @@ end
 # tell the die object to return the value 3 when it receives the roll message.
 die.stub(:roll) { 3 }
 
-blah.stub(:something).and_return(something_else)
+blah.stub(:something).and_return(something_else)    # result evaluated immediately
+blah.stub(:something) { something_else }  # result evaluated lazily
 
 describe "some feature" do
   it "should do something" do
@@ -56,6 +66,8 @@ describe "some feature" do
     blah.should be_nil
   end
 end
+
+### MOCKS
 
 
 ### EXPECTATIONS

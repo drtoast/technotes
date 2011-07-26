@@ -39,3 +39,9 @@ with path to db dir (default is /data/db)
 
 http://engineering.foursquare.com/2011/05/24/fun-with-mongodb-replica-sets/
 
+# DB admin
+
+    show dbs
+    use tunes
+    db.dropDatabase()
+    

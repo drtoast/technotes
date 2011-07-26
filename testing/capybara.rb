@@ -81,6 +81,9 @@ page.should_not have_xpath('a')
 # this WILL wait for ajax response:
 page.should have_no_xpath('a')
 
+# save page as html and open in browser
+save_and_open_page
+
 # page instance methods:
 :app, :body, :cleanup!, :current_path, :current_url, :document, :driver, 
 :evaluate_script, :execute_script, :method_missing, :mode, :reset!, 

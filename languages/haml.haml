@@ -1,2 +1,13 @@
+/ http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html
+
 / <strong class="code" id="message">Hello, World!</strong>
 %strong{:class => "code", :id => "message"} Hello, World!
+
+/ sanitize HTML:
+/ I feel &lt;strong&gt;!
+= "I feel <strong>!"
+
+/ don't sanitize HTML:
+/ I feel <strong>!
+!= "I feel <strong>!"
+

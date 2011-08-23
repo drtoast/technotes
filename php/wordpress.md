@@ -1,4 +1,4 @@
-# install
+# INSTALL
 
 ## set up virtual hosts
 

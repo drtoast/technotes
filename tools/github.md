@@ -51,4 +51,3 @@ click "create repository" at http://github.com/repositories/new, then
 
     git tag -a v0.0.2 -m 'tagging release v0.0.2'
     git push origin master --tags
-    

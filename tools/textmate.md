@@ -1,9 +1,17 @@
-# Auto-space hashes etc.
+# Bundles
 
-cmd-option-rightbracket
+cd ~/Library/Application\ Support/TextMate/Bundles/
 
-    blah      = 1
-    blah_blah = 4
+AckMate - https://github.com/protocool/AckMate
+HAML Bundle - https://github.com/textmate/ruby-haml.tmbundle
+SCSS Bundle - http://github.com/kuroir/SCSS.tmbundle
+Cucumber Bundle - https://github.com/cucumber/cucumber-tmbundle
+Coffeescript Bundle - https://github.com/jashkenas/coffee-script-tmbundle
 
-# Here documents and syntax
 
+# Keyboard Shortcuts
+
+http://projects.serenity.de/textmate/tutorials/basics/
+
+* Auto-space hashes etc: cmd-option-rightbracket
+* Toggle drawer/main window: cmd-option-`n (broken in lion??)

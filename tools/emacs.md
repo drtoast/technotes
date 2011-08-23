@@ -7,24 +7,18 @@ To run a command by name, type opt-x, then command, then return.
 
 ## OPENING/SAVING:
 
-    To open a file (find-file):
-        ctrl-x ctrl-f
-    To save a file (save-buffer):
-        ctrl-x ctrl-s
-    To save a file and exit (save-buffers-kill-emacs):
-        ctrl-x ctrl-c
+* Open file:      `ctrl-x ctrl-f`
+* Save file:      `ctrl-x ctrl-s`
+* Save and exit:  `ctrl-x ctrl-c`
 
 ## SCROLLING:
 
-    To scroll up (scroll-up):
-        ctrl-v
-    To scroll down (scroll-down):
-        opt-v
+* Scroll up:      `ctrl-v`
+* Scroll down:    `opt-v`
 
 ## UNDO/REDO:
-    To undo (multiple undo):
-        ctrl-_
 
+* Undo:           `ctrl-_`
 
 
 ## MOVEMENT:

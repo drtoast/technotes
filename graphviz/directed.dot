@@ -1,0 +1,64 @@
+/* 
+RENDER DIRECTED GRAPH:
+dot -Tsvg directed.dot -o directed.svg; open directed.svg
+
+RENDER EQUALLY SPACED NODES:
+neato -Tsvg directed.dot -o directed.svg; open directed.svg
+*/
+
+digraph test_diagram {
+
+  // define settings for the whole graph
+  graph [
+    rankdir = "TB" // LR (left-right), RL (right-left), TB (top-bottom), BT (bottom-top)
+    overlap = false
+    splines = true
+  ];
+  
+  // define default settings for all nodes.
+  // shapes:      http://www.graphviz.org/content/node-shapes
+  // attributes:  http://www.graphviz.org/content/attrs
+  node [
+    width    = 0.3
+    height   = 0.3
+    fontsize = "16"
+    shape    = "ellipse" // record, diamond, circle, etc
+  ];
+  
+  // define default settings for all edges
+  // attributes:  http://www.graphviz.org/content/attrs
+  edge [
+    color = red
+  ];
+
+  // define settings for individual named nodes
+  a [color = blue, fontcolor = red]
+  b [shape = box]
+  c [shape = diamond, label = "blah"]
+  d [shape = Mrecord, label = "{Title|one|two}"] // horizontal rounded box with title header
+  e [shape = Mrecord, label = "<title>Title|<one>one|<two>two"] // labels with port identifiers
+  
+  // group these nodes together (rectangle is only drawn if name starts with "cluster")
+  subgraph cluster_grey {
+    graph [
+      label = "some cluster"
+      style = "filled"
+      color = "lightgrey"
+    ]
+    node [
+      shape = "square"
+      style = "filled"
+    ]
+    f g h
+  }
+  
+  // connect the nodes
+  // Arrow shapes: http://www.graphviz.org/content/arrow-shapes
+  a -> b [color = green]
+  a -> c [arrowhead = onormal, arrowtail = dot, dir = both] // (o)(box|crow|diamond|dot|inv|none|normal|tee|vee)
+  a -> d
+  a -> e:title
+  a -> f
+  a -> g
+  a -> h
+}

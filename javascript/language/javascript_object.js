@@ -44,14 +44,10 @@ var Person = function(firstName, lastName) {
   
   // privileged methods - may be invoked publicly, but not changed
   this.weigh = function(){ return weight }
+  this.toString: function() { return this.firstName + ' ' + this.lastName; }
 }
  
-// 2. optionally add or override a set of instance methods later (add a prototype for the prototype?)
-Person.prototype = {
-  toString: function() { return this.firstName + ' ' + this.lastName; }
-}
-
-// 2a. optionally add another instance method
+// optionally add another instance method
 Person.prototype.amputate = function(){ this.legs-- }
 
 // use the class

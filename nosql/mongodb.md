@@ -24,7 +24,7 @@ with path to db dir (default is /data/db)
 
     mongod --dbpath ./data/db
 
-# fix db after crash
+# fix db after crash (OS X)
 
     rm /usr/local/var/mongodb/mongod.lock
     mongod --repair --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf

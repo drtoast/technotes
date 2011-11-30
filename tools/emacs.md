@@ -25,31 +25,23 @@ To run a command by name, type opt-x, then command, then return.
 
 by word:
 
-    Forward to end of a word (forward-word):
-        opt-f
-    Backward to beginning of a word (backward-word):
-        opt-b
+* Forward to end of a word (opt-f)
+* Backward to beginning of a word (opt-b)
 
 by line:
 
-    Beginning of a line (beginning-of-line):
-        ctrl-a
-    End of a line (end-of-line):
-        ctrl-e
+* Beginning of a line (ctrl-a)
+* End of a line (ctrl-e)
 
 by page:
 
-    Beginning of a page (backward-page):
-        ctrl-x [
-    End of a page (foward page):
-        ctrl-x ]
+* Beginning of a page (ctrl-x [)
+* End of a page (ctrl-x ])
 
 by file:
 
-    Beginning of buffer/file (beginning-of-buffer):
-        opt-<
-    End of buffer/file (end-of-buffer):
-        opt->
+* Beginning of buffer/file (opt-<)
+* End of buffer/file (opt->)
 
 by paretheses:
 

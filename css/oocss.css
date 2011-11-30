@@ -5,3 +5,22 @@ Separate container and content
 Extend objects by applying multiple classes to an element
 Use classes for style. Save ids for JavaScript.
 */
+
+/*
+
+### LAYOUT:
+
+Lines: (rows)
+class="line"
+
+Units: (columns)
+class="unit size1of5"
+class="lastUnit size4of5"
+
+Modules: (panels, etc)
+div class="mod source-list" (set to absolute size - 66% etc)
+  div class="inner" (resizes itself to fit within mod, can have padding etc)
+
+div class="mod flush" (no styling)
+
+*/

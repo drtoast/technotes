@@ -30,6 +30,14 @@ http://github.com/textmate/graphviz.tmbundle.git
         B->E [label="commands", fontcolor=darkgreen] // edge B->E
     }
 
+# Node styling
+
+    node [
+      color = "lightyellow"
+      style = "filled, bold"
+      shape = "Mrecord"
+    ]
+
 
 # Render directed graph
 

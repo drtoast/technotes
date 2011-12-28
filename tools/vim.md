@@ -214,6 +214,10 @@ move
 * move current window to a new tab (ctrl-w T)
 * move current window left/down/up/right (ctrl-w HJKL)
 
+## Sessions
+
+* save current session (:mksession yoursession.vim)
+* open a session (:so yoursession.vim)
 
 ## Buffers
 
@@ -242,7 +246,7 @@ move
 
 ## Formatting
 
-* align on commas, etc ()
+* align on colons from here to line 18 (:,18 :Align :)
 
 
 ## Indentation

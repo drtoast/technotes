@@ -1,22 +1,27 @@
 http://gitref.org/branching
 
-## COMMANDS
-
-show local branches
+# LIST
 
     git branch
-    
-show remote branches
+        -r  [remote branches]
+        --merged [branches that have already been merged]
+        --no-merged [branches that have not been merged]
 
-    git branch -r
+
+# CREATE
 
 create a branch
 
-    git branch my-branch
-    
+    git branch
+        my-branch [create this branch]
+        --track something origin/something [track a remote branch]
+
 switch to the branch
     
     git checkout my-branch
+
+
+# DELETE
 
 delete a branch
 
@@ -25,15 +30,3 @@ delete a branch
 delete a remote branch
 
     git push origin :my-branch
-    
-show branches that have already been merged
-
-    git branch --merged
-
-show branches that have not already been merged
-
-    git branch --no-merged
-    
-create a local branch that tracks a remote branch
-    
-    git branch --track something origin/something

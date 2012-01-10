@@ -72,7 +72,8 @@ create a Gemfile in project root:
 
     group :test, :development do
       gem 'jasmine', git: 'git://github.com/pivotal/jasmine-gem.git'
-      gem 'jasmine-headless-webkit'
+      # for now, need to use 'master' of jasmine-headless-webkit because it fixes a qt 4.8.0 bug
+      gem 'jasmine-headless-webkit', :git => 'git://github.com/johnbintz/jasmine-headless-webkit.git', :branch => 'master'
       gem 'rspec-rails'
       gem 'capybara'
       gem 'capybara-webkit'
@@ -101,6 +102,9 @@ Now that we've bootstrapped, move Gemfile and .rvmrc into your rails project
     mv .rvmrc yourappname
     cd yourappname
 
+Edit config/application.rb to save production and test assets in their own directories:
+
+    config.paths['public'] = "#{Rails.root}/public/#{Rails.env}"
 
 ## Jasmine
 
@@ -120,6 +124,15 @@ in spec/javascripts/support/jasmine.yml:
     # detect CoffeeScript specs
     spec_files:
       - '**/*[sS]pec.js.coffee'
+
+edit Guardfile:
+
+    guard 'jasmine-headless-webkit', all_on_start: true do
+      watch(%r{^public/test/assets/vendor.js$})                { 'spec/javascripts' }
+      watch(%r{^public/test/assets/application.js$})           { 'spec/javascripts' }
+      watch(%r{^spec/javascripts/(.*)_spec\..*})               { |m| newest_js_file(spec_location % m[1]) }
+      watch(%r{^spec/javascripts/helpers/.*})                  { 'spec/javascripts' }
+    end
 
 add a spec: spec/javascripts/models/hello.js.coffee
 
@@ -142,6 +155,9 @@ initialize guards:
 
     guard init rails-assets
     guard init jasmine-headless-webkit
+
+edit Guardfile:
+
 
 run guard:
 
@@ -193,18 +209,19 @@ Create the JS entry point
 
 add a model
 
-    # app/assets/javascripts/models/hello.js.coffee:
-    Hello = BackBone.Model.extend
+    # app/assets/javascripts/models/album.js.coffee:
+    class Tunes.Models.Album extends Backbone.Model
+        urlRoot: '/albums'
 
 add a jasmine unit test
 
     # spec/javascripts/models/hello_spec.js.coffee:
-    describe "Hello", ->
+    describe "Album", ->
       beforeEach ->
-        @hello = new Hello(message:"Hello World")
+        @hello = new Album(title:"Abbey Road")
 
       it "should have an artist", ->
-        expect(@hello.get('message')).toEqual("Hello World")
+        expect(@album.get('title')).toEqual("Abbey Road")
 
 add a capybara acceptance spec
 

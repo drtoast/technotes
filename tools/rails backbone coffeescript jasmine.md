@@ -94,7 +94,7 @@ Install gems:
 
 Create your project
 
-    bundle exec rails new yourappname
+    bundle exec rails new yourappname --skip-active-record
 
 Now that we've bootstrapped, move Gemfile and .rvmrc into your rails project
 
@@ -119,7 +119,7 @@ in spec/javascripts/support/jasmine.yml:
 
     # load application.js
     src_files:
-      - public/assets/application.js
+      - public/test/assets/application.js
 
     # detect CoffeeScript specs
     spec_files:

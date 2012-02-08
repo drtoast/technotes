@@ -6,27 +6,41 @@
 require 'rubygems'
 require 'mongo'
 
-# connect to database
-conn = Mongo::Connection.new('localhost',27017)
+# CONNECTION
+connection = Mongo::Connection.new('localhost',27017)
 
-# show all databases
-conn.database_info.each { |info| puts info.inspect}
+# DATABASE
+connnection.database_info.each { |info| puts info.inspect }
+connection.database_names.each { |db| puts db }
+database = connection['sample-db']
+connection.drop_database('sample-db')
 
-# get a datbase and collection
-db   = conn['sample-db']
-coll = db['test']
+# COLLECTION
+database.collection_names.each { |coll| puts coll }
+collection = database['test']
+collection.remove # delete everything
 
-# delete everything
-coll.remove
+# INDEXES
+collection.create_index("fieldname")
 
-# insert some documents
+# INSERT
 3.times do |i|
-  coll.insert({'a' => i+1})
+  collection.insert({'a' => i+1})
 end
 
-# show documents
-puts "There are #{coll.count} records. Here they are:"
-coll.find.each { |doc| puts doc.inspect }
+# FIND
+count = coll.count
+first = collection.find_one
+collection.find.each { |doc| puts doc.inspect }
+doc = collection.find("title" => 'xx').first
 
 # find all documents whose "i" is greater than 50, and print fields "a" and "b"
-coll.find("i" => {"$gt" => 50}, :fields => ["a", "b"]).each { |row| puts row }
+collection.find("i" => {"$gt" => 50}, :fields => ["a", "b"]).each { |row| puts row }
+
+# INSPECT
+doc.keys
+doc['title']
+doc['tracks'].each {|track| puts track['title']}
+
+# UPDATE
+collection.update({"_id" => doc["_id"]}, {"$set" => {"name" => "MongoDB Ruby"}})

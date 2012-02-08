@@ -1,0 +1,83 @@
+/*
+http://www.alistapart.com/articles/css-positioning-101
+http://www.quirksmode.org/css/position.html
+
+3 techniques: positioning, float, and width/margin
+
+BOX MODEL:
+content -> padding -> border -> margin
+
+*/
+
+
+
+/* POSITION */
+.foo {
+  position: static;
+  /* default positioning.
+     elements stack on top of each other according to "normal flow" of document.
+     NO top/left/bottom/right declarations possible.
+  */
+
+  position: relative;
+  /* like static, but can adjust top/left/bottom/right relative to context
+     context is wherever the block would be positioned if it was "static"
+     doesn't affect elements that follow
+  */
+
+  position: absolute;
+  /* can position anywhere without affecting other elements
+     the "normal flow" of other elements act like this element isn't there
+     context is first containing block that is not "static"
+  */
+
+  position: fixed;
+  /* position is relative to the viewport (browser)
+     context is the browser window
+  */
+
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+/* DISPLAY */
+.foo {
+  display: inline; /* no linebreak before or after the element */
+  display: block; /* linebreak before and after the element */
+  display: inline-block;
+  display: none;
+}
+
+/* FLOAT */
+.foo {
+  float: left; /* element adheres to the margin to its left, any following content flows around it */
+  clear: left; /* cancel any float: left declarations */
+}
+
+
+/* OVERFLOW: describes how content should be rendered when larger than containing elemnt */
+.foo {
+  overflow: visible; /* overflowing content will bleed into adjacent elements */
+  overflow: hidden; /* overflowing content will be removed from the view */
+  overflow: scroll; /* overflowing content will scroll vertically and horizontally */
+  overflow: auto; /* scroll bars placed within expressed dimensions */
+  overflow-x: hidden; /* hide overflow in the x axis */
+  overflow-y: hidden; /* hide overflow in the y axis */
+}
+
+/* PADDING: creates gutters of negative space, never collapses */
+.foo {
+  padding: 0;
+}
+html, body {
+  margin: 0; padding: 0; /* by default, browser adds 10px of margin to body */
+}
+
+/* MARGIN: */
+.foo {
+  margin-bottom: -1.5em; /* negative margins cause element's computed box to bleed into whatever is adjacent */
+}
+

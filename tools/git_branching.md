@@ -10,8 +10,6 @@ http://gitref.org/branching
 
 # CREATE
 
-create a branch
-
     git branch
         my-branch [create this branch]
         --track something origin/something [track a remote branch]

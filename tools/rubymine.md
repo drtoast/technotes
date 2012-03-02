@@ -17,9 +17,11 @@
 
 * go to named class (command-N)
 * go to method declaration (command-B)
+* go to last edit (command-shift-delete)
 * show method parameters (command-P)
+* show local history (control-click -> Local History -> Show History)
 * find an action (command-shift-A)
-* go to 
+
 
 # Selecting
 
@@ -31,13 +33,13 @@
 * indent/outdent: (tab/shift-tab)
 * delete row: (cmd-Y)
 * paste from history: (cmd-shift-V)
-
+* format code: (command-option-L)
 
 # Finding
 
 * find in project (command-shift-F)
 * go to previous/next occurrence in results (command-option-up/down)
-
+* show recent searches (command-E)
 
 # Committing
 

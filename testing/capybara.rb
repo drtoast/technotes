@@ -1,63 +1,77 @@
-# Acceptance testing
 # https://github.com/jnicklas/capybara
-
-# WebRat replacement that runs JavaScript
-# Driver Agnostic (switch seamlessly):
-#   rack-test (fast, simple, but no JavaScript)
-#   Selenium (real browser, but slow, requires GUI)
-#   HTMLUnit (headless, good JavaScript support, but slow)
-#     Celerity/Culerity/Akephalos
-#   Envjs (headless, faster than HTMLUnit, but JavaScript and CSS not 100%)
-
-
-### Capybara webkit: 
-
-# https://github.com/thoughtbot/capybara-webkit
-
-# 1. install Qt libraries 4.7.3 for Mac: 
-# http://qt.nokia.com/downloads
-
-# 2. Add the capybara-webkit gem to your Gemfile:
-gem "capybara-webkit"
-
-# 3. Set your Capybara Javascript driver to webkit:
-Capybara.javascript_driver = :webkit
-
-# 4. Tag scenarios with @javascript to run them using a headless WebKit browser.
 
 
 ### DSL
-
-visit       diagnostic_report(@user)
+visit       '/foo/bar'
 click_link  "Recommendation"
 fill_in     'Intervention', :with => 'B – Complex'
 
-# querying (as RSpec matchers)
-page.should have_selector('table tr')
-page.should have_selector(:xpath, '//table/tr')
-page.should have_no_selector(:content)
-page.should have_xpath('//table/tr')
-page.should have_css('table tr.foo')
-page.should have_content('foo')
-page.should have_no_content('foo')
 
-# finding and interacting with elements
-# http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Element
+# RSpec matchers
+# http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers
+page.should have_button('.foo')
+page.should have_content('foo') # have_no_content('foo')
+page.should have_css('table tr.foo')
+page.should have_field('.foo')
+page.should have_link('title')
+page.should have_select('name')
+page.should have_selector('table tr') # have_no_selector(:content)
+page.should have_selector(:xpath, '//table/tr')
+page.should have_table('.foo')
+page.should have_unchecked_field('foo')
+page.should have_xpath('//table/tr')
+
+
+# FINDING elements
+# http://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders
+find("#overlay").find("h1").click
+find(:xpath, "//table/tr").click
+first(".foo")
+all('a').each { |a| a[:href] }
 find_field('First Name').value
 find_link('Hello').visible?
 find_button('Send').click
-find(:xpath, "//table/tr").click
-find("#overlay").find("h1").click
-all('a').each { |a| a[:href] }
 
-# filling forms
+
+# ACTIONS
+# http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Actions
+# links and buttons:
+click_link('id-of-link')
+click_link('Link Text')
+click_button('Save')
+click_on('Link Text') # clicks on either links or buttons
+click_on('Button Value')
+# forms:
+fill_in('First Name', :with => 'John')
+fill_in('Password', :with => 'Seekrit')
+fill_in('Description', :with => 'Really Long Text...')
 choose('A Radio Button')
 check('A Checkbox')
 uncheck('A Checkbox')
 attach_file('Image', '/path/to/image.jpg')
 select('Option', :from => 'Select Box')
 
-# scoping
+
+# INTERACTING with elements
+# http://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Element
+find('#foo').checked?
+find('#foo').click
+find('#foo').drag_to(node)
+find('#foo').find('.bar')
+find('#foo').first
+find('#foo').inspect
+find('#foo').select_option
+find('#foo').selected?
+find('#foo').set('value') # form element
+find('#foo').tag_name
+find('#foo').text
+find('#foo').trigger('blur')
+find('#foo').unselect_option
+find('#foo').value # form element
+find('#foo').visible?
+
+
+# SCOPING
 within("li#employee") do
   fill_in 'Name', :with => 'Jimmy'
 end
@@ -73,6 +87,7 @@ end
 within_table('Employee') do
   fill_in 'Name', :with => 'Jimmy'
 end
+
 
 # waiting
 wait_until { not page.find('#intervention_overlay').visible? }.should be_true

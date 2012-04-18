@@ -8,6 +8,10 @@
 
 * find an action by name (command-shift-A)
 
+# Editor Navigation
+
+* switch from panel to editor (escape)
+* close panel and switch to editor (shift-escape)
 
 # File Navigation
 

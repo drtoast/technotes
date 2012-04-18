@@ -1,22 +1,25 @@
+=begin
+http://api.rubyonrails.org/classes/ActiveRecord/Migration.html
+
+rails g migration AddStuffToProduct name:string price:decimal
+=end
+
+
 ### CREATING TABLES
 class CreateProducts < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :products do |t|
       t.string :name
       t.text :description
       t.timestamps
     end
   end
- 
-  def self.down
-    drop_table :products
-  end
 end
 
 ### CHANGING TABLES
 class ChangeProducts < ActiveRecord::Migration
 
-  def self.up
+  def up
     change_table :products do |t|
       t.remove :description, :name
       t.string :part_number
@@ -27,10 +30,26 @@ class ChangeProducts < ActiveRecord::Migration
     end
     
     # OR:
-    remove_column :products, :description
-    remove_column :products, :name
+
+    # add:
     add_column :products, :part_number, :string
     add_index :products, :part_number
+    create_table :products do |t|
+
+    end
+
+    # change:
+    change_column
+    change_table 
     rename_column :products, :upccode, :upc_code
+
+    # delete:
+    remove_column :products, :description
+    remove_index
+
   end
 end
+
+
+### column types
+:string, :text, :integer, :float, :decimal, :datetime, :timestamp, :time, :date, :binary, :boolean

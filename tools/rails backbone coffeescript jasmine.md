@@ -12,11 +12,11 @@ http://beginrescueend.com/
 
 add to .rvmrc in project root:
 
-    rvm ruby-1.9.3-p0@yourappname --create
+    rvm ruby-1.9.3-p125@yourappname --create
 
 install Ruby 1.9.3:
 
-    rvm install ruby-1.9.3-p0
+    rvm install ruby-1.9.3-p125
 
 install Bundler:
 
@@ -61,6 +61,7 @@ create a Gemfile in project root:
     source 'http://rubygems.org'
     gem 'rails'
     gem 'jquery-rails'
+    gem 'rails-backbone'
     gem 'mongo'
 
     group :assets do
@@ -68,6 +69,7 @@ create a Gemfile in project root:
       gem 'coffee-rails'
       gem 'uglifier'
       gem 'therubyracer'
+      gem 'twitter-bootstrap-rails'
     end
 
     group :test, :development do
@@ -105,6 +107,15 @@ Now that we've bootstrapped, move Gemfile and .rvmrc into your rails project
 Edit config/application.rb to save production and test assets in their own directories:
 
     config.paths['public'] = "#{Rails.root}/public/#{Rails.env}"
+
+## Twitter Bootstrap
+
+http://railscasts.com/episodes/328-twitter-bootstrap-basics
+
+Setup Bootstrap:
+
+    rails g bootstrap:install
+
 
 ## Jasmine
 
@@ -166,14 +177,9 @@ run guard:
 
 ## Backbone etc.
 
-Add libs
+Install backbone
 
-    # vendor/assets/javascripts:
-    backbone.js
-    coffeekup.js
-    jquery.js
-    json2.js
-    underscore.js
+  rails g backbone:install
 
 Require vendor and local libs
 
@@ -181,7 +187,6 @@ Require vendor and local libs
     //= require jquery
     //= require jquery_ujs
     //= require underscore
-    //= require coffeekup
     //= require json2
     //= require backbone
     //= require yourapp

@@ -1,3 +1,9 @@
+# Installing non-LLVM rubies
+
+install https://github.com/kennethreitz/osx-gcc-installer, then
+
+    CC=/usr/bin/gcc-4.2 rvm install ruby-1.8.7-p302
+
 # Switch ruby version
 
 show available rubies

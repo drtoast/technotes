@@ -16,10 +16,10 @@ run:
 
 # Run manually or via rake:
 
-    jasmine-headless-webkit -c
+    bundle exec jasmine-headless-webkit -c
     rake jasmine:headless
 
 # Run a specific spec
 
-    jasmine-headless-webkit -c spec/javascripts/api_spec.coffee
+    bundle exec jasmine-headless-webkit -c spec/javascripts/api_spec.coffee
 

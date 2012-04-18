@@ -59,9 +59,9 @@
 
 /** BACKGROUND: set the background color (image, etc) for an element */
 
-{
-    background: #ffffff "blah.jpg"; /* background-color background-image background-repeat background-attachment background-position; */
-    background: #ffffff;            /* background-color */
+{   /* background: color position size repeat origin clip attachment image; */
+    background: #ffffff "blah.jpg";
+    background: #ffffff;
     background-attachment: scroll;  /* scroll,fixed; */
     background-color: #ffffff;
     background-image: url(//images/blah.jpg);

@@ -1,3 +1,8 @@
+# Install
+
+brew uninstall imagemagick
+brew install imagemagick --disable-openmp
+
 # File Formats
 
 To get info about your installation:

@@ -15,3 +15,9 @@ describe 'some suite', ->
   it 'top-level describe', ->
     expect(suiteWideFoo).toEqual(0)
     expect(nestedSuiteBar).toEqual(undefined)
+
+
+# SPIES
+
+foo = new Foo;
+spyOn(foo, 'bar').andReturn('baz')

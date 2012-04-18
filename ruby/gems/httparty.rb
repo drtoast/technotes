@@ -1,3 +1,7 @@
+# NOTE: many folks are now using Faraday instead:
+# https://github.com/technoweenie/faraday
+
+
 require 'httparty'
 
 class Server

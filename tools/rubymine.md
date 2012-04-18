@@ -1,3 +1,9 @@
+# Neat features
+
+* click blue bar to the left of a local change, view last revision, click "rollback" button
+* command-b on a method or class to navigate to its definition
+
+
 # Meta
 
 * find an action by name (command-shift-A)
@@ -17,6 +23,7 @@
 
 * go to named class (command-N)
 * go to method declaration (command-B)
+* go to symbol (command-option-shift-N)
 * go to last edit (command-shift-delete)
 * show method parameters (command-P)
 * show local history (control-click -> Local History -> Show History)

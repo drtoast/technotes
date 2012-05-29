@@ -1,3 +1,10 @@
+# development.rb
+
+# Don't send emails in development
+config.action_mailer.delivery_method = :test
+
+
+
 class Notifier < ActionMailer::Base
   default :from =>
     "Highrise <system@#{APPLICATION_DOMAIN}>" 

@@ -29,15 +29,17 @@
 * go to method declaration (command-B)
 * go to symbol (command-option-shift-N)
 * go to last edit (command-shift-delete)
+* go to line (command-G)
 * show method parameters (command-P)
 * show local history (control-click -> Local History -> Show History)
 * find an action (command-shift-A)
 
 
+
 # Selecting
 
 * widen selection (ctrl-shift-W)
-
+* toggle line/column select mode: (command-shift-*)
 
 # Editing
 
@@ -45,6 +47,7 @@
 * delete row: (cmd-Y)
 * paste from history: (cmd-shift-V)
 * format code: (command-option-L)
+
 
 # Finding
 

@@ -10,6 +10,7 @@
 
 # Editor Navigation
 
+* switch from editor to panel (command-1)
 * switch from panel to editor (escape)
 * close panel and switch to editor (shift-escape)
 

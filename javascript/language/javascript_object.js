@@ -2,7 +2,10 @@
 var obj = {a: 1, b: 2, 'c-d-e': 3};
 typeof obj;
 // => "object"
-
+obj.a
+// 1
+obj['a']
+// 1
 
 
 // PROTOTYPE

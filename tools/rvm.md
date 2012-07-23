@@ -3,6 +3,8 @@
 install https://github.com/kennethreitz/osx-gcc-installer, then
 
     CC=/usr/bin/gcc-4.2 rvm install ruby-1.8.7-p302
+    rvm gemset create ruby-1.8.7-p302@wellspace
+    gem install bundler
 
 # Switch ruby version
 

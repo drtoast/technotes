@@ -44,11 +44,13 @@ content -> padding -> border -> margin
 
 
 /* DISPLAY */
+/* http://www.quirksmode.org/css/display.html */
 .foo {
   display: inline; /* no linebreak before or after the element */
   display: block; /* linebreak before and after the element */
-  display: inline-block;
+  display: inline-block; /* no linebreak before or after, but contents behave like block */
   display: none;
+  display: table;
 }
 
 /* FLOAT */
@@ -78,6 +80,9 @@ html, body {
 
 /* MARGIN: */
 .foo {
+  margin: 5px 10px 15px 20px; /* CLOCKWISE: top right bottom left */
+  margin: 5px 10px 15px; /* top right&left bottom */
+  margin: 5px 10px; /* top&bottom right&left */
   margin-bottom: -1.5em; /* negative margins cause element's computed box to bleed into whatever is adjacent */
 }
 

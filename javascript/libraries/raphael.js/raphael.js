@@ -1,10 +1,10 @@
 // http://raphaeljs.com/
-// high-level JavaScript SVG drawing library
+// http://net.tutsplus.com/tutorials/javascript-ajax/an-introduction-to-the-raphael-js-library/
 
 
 // EXAMPLE
 
-var paper = Raphael(10, 50, 320, 200);
+var paper = new Raphael(document.getElementById('canvas'), 640, 480);
 var circle = paper.circle(50, 40, 10);
 circle.attr("fill", "#f00");
 circle.attr("stroke", "#fff");

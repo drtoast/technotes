@@ -1,0 +1,185 @@
+stack
+
+Zeitgeist
+    https://www.ruby-toolbox.com
+    http://renderedtext.com/toolbox/
+    http://www.everyjs.com/
+
+Examples
+    social rails app: https://github.com/diaspora/diaspora
+    social JSON API: https://github.com/appdotnet/api-spec
+
+Testing
+    javascript
+        jasmine / jasmine-headless-webkit http://pivotal.github.com/jasmine/
+        sinon.js http://sinonjs.org/
+    ruby
+        + rspec https://www.relishapp.com/rspec/
+        + guard https://github.com/guard/guard/
+        delorean
+        mocha https://github.com/freerange/mocha
+        + webmock https://github.com/bblimke/webmock/
+        fake_web
+        factory_girl
+        vcr
+    browser
+        capybara / capybara-headless-webkit https://github.com/jnicklas/capybara/
+        cucumber http://cukes.info/
+
+JavaScript
+    MVC
+        backbone.js
+        ember.js
+        meteor.js
+        tower.js http://towerjs.org/ (coffeescript, coffeekup, ember, bootstrap)
+    graphics
+        three.js
+        highcharts/highstock
+        raphael.js
+        paper.js
+        createjs http://createjs.com/
+            easel.js
+            tween.js
+        processing.js
+        d3.js
+
+    utility
+        jquery
+        underscore.js
+        coffeescript
+        sprockets
+        uglifier
+    templating
+        mustache.js
+        handlebars.js
+        underscore.js
+        rivets.js http://rivetsjs.com/
+        jst / eco
+
+Web
+    HTML
+        haml http://haml.info/
+        + slim slim-lang.com
+    CSS
+        sass
+        + less http://lesscss.org/
+        + bootstrap twitter.github.com/bootstrap/
+
+Ruby
+    MVC
+        sinatra
+        rails http://rubyonrails.org/
+    graphics
+        imagemagick
+        macruby / coreimage / coregraphics
+    authentication
+        - devise
+        omniauth
+        - cancan
+        + declarative_authorization https://github.com/stffn/declarative_authorization
+        + sorcery https://github.com/NoamB/sorcery/
+    security
+        attr_encrypted https://github.com/shuber/attr_encrypted
+    export
+        axslx https://github.com/randym/axlsx
+        wicked_pdf https://github.com/mileszs/wicked_pdf
+    api
+        typhoeus
+        - httparty
+        + faraday https://github.com/technoweenie/faraday
+        savon https://github.com/rubiii/savon
+        nokogiri http://nokogiri.org/
+    devtools
+        perftools.rb
+        rvm
+        pry https://github.com/pry/pry
+    server
+        rack http://rack.github.com/
+        thin http://code.macournoyer.com/thin/
+    misc
+        kaminari (pagination)
+        rollout, rollout-ui (feature switches)
+        state_machine https://github.com/pluginaweek/state_machine
+        rest_in_place https://github.com/janv/rest_in_place
+        jekyll
+        middleman http://middlemanapp.com/
+        heroku_san https://github.com/fastestforward/heroku_san
+
+Process
+    project management
+        pivotal tracker
+        skype
+        basecamp
+    tools
+        graphviz
+        chrome web developer http://chrispederick.com/work/web-developer/
+        foreman (process management)
+    scm
+        git
+        github
+    editors
+        vim/janus https://github.com/carlhuda/janus/
+        rubymine
+        + sublime text
+        - textmate
+
+Datastore
+    SQL
+        mysql
+        + postgresql http://www.postgresql.org/docs/9.1/interactive/index.html
+        sqlite3
+    NoSQL
+        + redis http://redis.io/
+        mongodb http://www.mongodb.org/
+        memcache
+        couchdb
+
+Operations
+    hosting
+        heroku
+        rackspace
+        engineyard
+        route 53 (amazon DNS)
+        ec2
+    monitoring
+        + newrelic
+        nagios
+        - god
+        hoptoad
+    server
+        apache
+        goliath
+        nginx
+        unicorn
+        passenger
+    configuration
+        chef
+        puppet
+    continuous integration
+        + semaphore
+        teamcity
+        jenkins
+    automation
+        resque https://github.com/defunkt/resque/
+        sidekiq https://github.com/mperham/sidekiq/
+
+Search
+    solr
+    elasticsearch http://www.elasticsearch.org/
+    indextank
+    sphinx https://github.com/freelancing-god/thinking-sphinx
+
+Unix
+    network
+        sftp
+        rsync
+        ssh
+    search
+        grep
+        awk
+        sed
+        find
+    encryption
+        openssl
+    graphics
+        potrace http://potrace.sourceforge.net/

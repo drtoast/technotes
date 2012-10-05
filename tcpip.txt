@@ -1,0 +1,396 @@
+<pre>
+Monitor all ethernet traffic:
+sudo tcpdump -i en0
+
+Monitor all establishing connections (only show packets with "SYN" flag set):
+sudo tcpdump -i en0 'tcp[13] == 2'
+
+
+
+TCP/IP OVERVIEW:
+
+
+
+Network data composed of 3 levels: TCP (or UDP, ICMP, etc), IP, and Ethernet.  TCP is the
+packet of data, IP is the protocol that sends the packet across the internet, and Ethernet
+carries the TCP/IP packet across the local hardware network
+
+TCP header format:
+
+
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |          Source Port          |       Destination Port        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                        Sequence Number                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Acknowledgment Number                      |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Data |           |U|A|P|R|S|F|                               |
+   | Offset| Reserved  |R|C|S|S|Y|I|            Window             |
+   |       |           |G|K|H|T|N|N|                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |           Checksum            |         Urgent Pointer        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Options                    |    Padding    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                             data                              |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                            TCP Header Format
+
+          Note that one tick mark represents one bit position.
+
+
+
+TCP datagram composition:  (a TCP datagram is the packet of data sent via IP)
+
+Source port (16 bits)
+    Port of the machine sending the datagram
+Destination Port (16 bits)
+    Port of the machine receiving the datagram
+Sequence Number (32 bits)
+    This is used so that the other end can make sure that it gets the datagrams
+    in the right order, and that it hasn't missed any. TCP doesn't number the
+    datagrams, but the octets. So if there are 500 octets of data in each datagram,
+    the first datagram might be numbered 0, the second 500, the next 1000, the next 1500, etc.
+    If SYN control bit is present the sequence number is the initial sequence number (ISN)
+    and the first data octet is ISN+1.
+Acknowledgement Number (32 bits)
+    Only filled in if this is an acknowledgement of a received datagram and the ACK control bit is set.
+    For example, sending a packet with an acknowledgement of 1500 indicates
+    that you have received all the data up to octet number 1500.
+Data Offset (4 bits)
+    The number of 32 bit words in the TCP Header.  This indicates where the data begins.
+Reserved (4 bits)
+    Reserved for future use.  Must be zero.
+Control Bits (8 bits, left to right:)
+    CWR:
+    ECE:
+    URG:  Urgent Pointer field significant
+    ACK:  Acknowledgment field significant (and acknowledgement number field shows last octet received)
+    PSH:  Push Function (send some data)
+    RST:  Reset the connection
+    SYN:  Synchronize sequence numbers (only in initial connection request)
+    FIN:  No more data from sender
+Window (16 bits)
+    The window is used to control how much data can be in transit at any one time.
+    Each end indicates how much new data it is currently prepared to absorb by putting
+    the number of octets in its "Window" field. As the computer receives data, the
+    amount of space left in its window decreases. When it goes to zero, the sender has to stop.
+Checksum (16 bits)
+    This is a number that is computed by adding up all the octets in the datagram.
+    The result is put in the header. TCP at the other end computes the checksum again.
+    If they disagree, then something bad happened to the datagram in transmission,
+    and it is thrown away.
+Urgent Pointer (16 bits)
+    Allows one end to tell the other to skip ahead in its processing to a particular octet.
+    This field is only be interpreted in segments with the URG control bit set.
+Options (variable length, multiple of 8 bits)
+    No-Operation (used between options, e.g. to align subsequent option on a word boundary)
+    End of Option List (indicates the preceding option was the last one)
+    Maximum Segment Size (Communicates the maximum
+          receive segment size at the TCP which sends this segment.
+          This field must only be sent in the initial connection request
+          (i.e., in segments with the SYN control bit set).  If this
+          option is not used, any segment size is allowed.)
+Data (500 octets)
+
+
+
+IP level:
+
+TCP sends each of these datagrams to IP. Of course it has to tell IP the Internet address
+of the computer at the other end. Note that this is all IP is concerned about. It doesn't
+care about what is in the datagram, or even in the TCP header. IP's job is simply to find
+a route for the datagram and get it to the other end. In order to allow gateways or other
+intermediate systems to forward the datagram, it adds its own header.
+
+Version
+IHL
+Type of Service
+Total Length
+Identification
+Flags
+    Used to keep track of the pieces when a datagram has to be split up.
+Fragment Offset
+    Used to keep track of the pieces when a datagram has to be split up.
+Time to Live
+    The time to live is a number that is decremented whenever the datagram passes
+    through a system. When it goes to zero, the datagram is discarded.
+Protocol Number
+    Tells IP at the other end to send the datagram to TCP. Although most IP traffic uses
+    TCP, there are other protocols that can use IP, so you have to tell IP which protocol
+    to send the datagram to.
+Header Checksum
+    Allows IP at the other end to verify that the header wasn't damaged in transit.
+    Note that TCP and IP have separate checksums.
+Source Address
+    32-bit address of sender (192.168...)
+Destination Address
+    32-bit address of receiver (192.168...)
+TCP header and data
+    A fully-formed TCP datagram, as described above
+
+
+
+Ethernet level:
+
+Ethernet destination address (48 bits)
+    The unique hardware ethernet destination address
+Ethernet source address (48 bits)
+    The unique hardware ethernet source address
+Type code
+    Indicates the protocol (TCP/IP, DECnet, etc)
+IP header + TCP header + data
+    The TCP/IP data being sent. See descriptions above.
+Ethernet Checksum
+    Checksum for the whole ethernet packet. Note that checksum is after data.
+
+
+When these packets are received by the other end, of course all the headers are removed.
+The Ethernet interface removes the Ethernet header and the checksum. It looks at the type
+code. Since the type code is the one assigned to IP, the Ethernet device driver passes the
+datagram up to IP. IP removes the IP header. It looks at the IP protocol field. Since the
+protocol type is TCP, it passes the datagram up to TCP. TCP now looks at the sequence number.
+It uses the sequence numbers and other information to combine all the datagrams into the
+original file.
+
+
+PROTOCOLS OTHER THAN TCP:
+
+While TCP is useful for splitting large amounts of data into packets, sometimes you have
+data that can be sent in a single packet and thus don't need the complexity of TCP.
+
+UDP ("User Datagram Protocol")
+    UDP is designed for applications where you don't need to put sequences of datagrams together.
+    It fits into the system much like TCP. Note that the UDP header is shorter than a TCP
+    header. It still has source and destination port numbers, and a checksum, but that's about it.
+    No sequence number, since it is not needed. UDP is used by the protocols that handle name
+    lookups (see IEN 116, RFC 882, and RFC 883), and a number of similar protocols.
+
+ICMP ("Internet Control Message Protocol")
+    ICMP is used for error messages, and other messages intended for the TCP/IP software itself,
+    rather than any particular user program. For example, if you attempt to connect to a host,
+    your system may get back an ICMP message saying "host unreachable". ICMP can also be used
+    to find out some information about the network. See RFC 792 for details of ICMP. ICMP is
+    similar to UDP, in that it handles messages that fit in one datagram. However it is even
+    simpler than UDP. It doesn't even have port numbers in its header. Since all ICMP messages
+    are interpreted by the network software itself, no port numbers are needed to say where
+    a ICMP message is supposed to go.
+
+ARP ("Address Resolution Protocol")
+    Hosts must convert a 32-bit IP address into a 48-bit Ethernet address. The Address Resolution
+    Protocol is used to do this. ARP works by broadcasting a packet to all hosts attached to an
+    Ethernet. The packet contains the IP address the sender is interested in communicating with.
+    Most hosts ignore the packet. The target machine, recognizing that the IP address in the packet
+    matches its own, returns an answer. Hosts typically keep a cache of ARP responses, based on the
+    assumption that IP-to-hardware address mapping rarely change.
+
+AARP ("AppleTalk Address Resolution Protocol")
+    Apple-specific version of the ARP protocol. AARP is a way to map between the physical hardware
+    addresses of computers, such as those known to an Ethernet or token ring local area network,
+    and their temporarily assigned AppleTalk network addresses. AppleTalk node addresses are
+    assigned dynamically. When a Macintosh running AppleTalk starts up, it chooses a protocol
+    (network-layer) address and checks to see whether that address is currently in use. If not,
+    the new node has successfully assigned itself an address. If the address is currently in use,
+    the node with the conflicting address sends a message indicating a problem, and the new
+    node chooses another address and repeats the process. AARP protocol Manages this function.
+    AppleTalk addresses usually are written as decimal values separated by a period.
+    For example, 10.1.50 means network 10, node 1, socket 50. This also might be
+    represented as 10.1, socket 50.
+
+RARP ("Reverse Address Resolution Protocol")
+    Reverse ARP, document in RFC 903, is a fairly simple bootstrapping protocol that allows a
+    workstation to broadcast using its Ethernet address, and expect a server to reply, telling
+    it its IP address.
+
+RIP ("Routing Information Protocol") (Cayman DSL router uses RIPv1)
+    RIP is a distance-vector protocol that allows routers to exchange information about
+    destinations for computing routes throughout the network. Distance-vector algorithms make
+    each router periodically broadcast its routing tables to all its neighbors. Then a router
+    knowing its neighbors' tables can decide which destination neighbor to use for routing a packet.
+
+802.1d (MAC/"Media Access Control").  Protocol used by Cisco switch??
+    Both the physical distance that Local Area Networks (LAN) can cover and the number of hosts
+    that can be attached to it are limited. To overcome this limitation, bridges are introduced
+    as devices which connect LANs at the MAC layer. The purpose of bridges is to allow hosts
+    attached to different LANs to communicate as if they were located on the same LAN. In contrast
+    to repeaters, that act at the physical layer and allow all traffic to cross LAN segments,
+    bridges are more intelligent and limit the traffic to the section of the network on which
+    it is relevant. To accomplish this, bridges must make a forwarding decision with each received
+    frame regarding where to send the frame so that it reaches its destination.
+    The IEEE standard for MAC bridges is ANSI/IEEE 802.1D: MAC Sublayer Interconnection.
+
+CDP ("Cisco Discovery Protocol")
+    A Cisco device sends out periodic updates out of its interfaces to make itself known to its
+    neighbors. Since it is a layer two protocol, these packets (frames) are not routed. The updates
+    are sent on Ethernet to the multicast address 01:00:0C:CC:CC:CC.
+
+SAP ("Service Advertisement Protocol") (NetWare protocol, via IPX)
+    The Service Advertisement Protocol (SAP) is an IPX protocol through which network resources,
+    such as file servers and print servers, advertise their addresses and the services they provide.
+    Advertisements are sent via SAP every 60 seconds. Services are identified by a hexadecimal
+    number, which is called a SAP identifier (for example, 4 = file server, and 7 = print server).
+
+IGMP ("Internet Group Management Protocol")
+    The Internet Group Management Protocol (IGMP) is an Internet protocol that provides a way for
+    an Internet computer to report its multicast group membership to adjacent routers. Multicasting
+    allows one computer on the Internet to send content to multiple other computers that have
+    identified themselves as interested in receiving the originating computer's content.
+    The queriers and hosts use three specific message structures, "query", "report", and "leave group",
+    to communicate to each other about the multicast traffic. Query messages are used queriers
+    to discover which network devices are members of a given multicast group. Report messages
+    are sent by hosts in response to queries to inform the querier of a host's membership.
+    The host may also use the report message to join a new group. Leave group messages are
+    sent when the host wishes to leave the multicast group.
+
+SNMP ("Simple Network Management Protocol")
+
+
+
+ROUTING:
+
+A gateway is a system that connects different networks together (128.6.4 and 128.6.3, etc). The
+gateway's software forwards datagrams from one network to another.  When a computer wants to
+send a datagram, it first checks to see if the destination address is on the system's own
+local network. If so, the datagram can be sent directly. Otherwise, the system expects to
+find an entry for the network that the destination address is on. The datagram is sent to
+the gateway listed in that entry.
+
+BROADCAST:
+
+A broadcast is a message that you want every system on the network to see. In order to send a
+broadcast, you use an address that is made by using your network address, with all ones in
+the part of the address where the host number goes. For example, if you are on network 128.6.4,
+you would use 128.6.4.255 for broadcasts. For convenience, the standard also allows
+255.255.255.255 to be used. In addition, certain older implementations may use 0 instead of
+255 to form the broadcast address.
+
+MULTICAST:
+
+IP Multicast Addresses specify an arbitrary group of IP hosts that have joined the group and want
+to receive traffic sent to this group.  The Internet Assigned Numbers Authority (IANA) has assigned
+the range of 224.0.0.0 to 239.255.255.255 for IP multicast.
+The IANA has reserved addresses in the 224.0.0.0 through 224.0.0.255 to be used by network
+protocols on a local network segment. Packets with these addresses should never be forwarded
+by a router; they remain local on a particular LAN segment. They are always transmitted with
+a time-to-live (TTL) of 1. Network protocols use these addresses for automatic router discovery
+and to communicate important routing information.
+224.0.0.1 - All systems on this subnet
+224.0.0.2 - All routers on this subnet
+224.0.0.5 - OSPF routers
+224.0.0.6 - OSPF designated routers
+224.0.0.12 - DHCP server/relay agent
+GLOBALLY SCOPED ADDRESSES: The range of addresses from 224.0.1.0 through 238.255.255.255 are
+called globally scoped addresses. They can be used to multicast data between organizations
+and across the Internet. Some of these addresses have been reserved for use by multicast
+applications through IANA. For example, 224.0.1.1 has been reserved for Network Time Protocol (NTP).
+LIMITED SCOPE ADDRESSES: The range of addresses from 239.0.0.0 through 239.255.255.255 contains
+limited scope addresses or administratively scoped addresses. These are defined by RFC 2365
+to be constrained to a local group or organization. Routers are typically configured with
+filters to prevent multicast traffic in this address range from flowing outside an autonomous
+system (AS) or any user-defined domain. Within an autonomous system or domain, the limited scope
+address range can be further subdivided so those local multicast boundaries can be defined.
+This also allows for address reuse among these smaller domains.
+
+TCPDUMP SUMMARY:
+
+TCP packets:
+
+The general format of a tcp protocol line is:
+
+src > dst: flags data-seqno ack window urgent options
+rtsg.1023 > csam.login: S 768512:768512(0) win 4096 <mss 1024>
+
+    Src  and  dst  are the source and destination IP addresses
+    and ports.  Flags are  some  combination  of  S  (SYN),  F
+    (FIN),  P  (PUSH)  or  R (RST) or a single `.' (no flags).
+    Data-seqno describes the portion of sequence space covered
+    by  the  data  in this packet (see example below).  Ack is
+    sequence number of the next data expected the other direc-
+    tion on this connection.  Window is the number of bytes of
+    receive buffer space available the other direction on this
+    connection.   Urg  indicates there is `urgent' data in the
+    packet.  Options are tcp options enclosed in angle  brack-
+    ets (e.g., <mss 1024>). (Max-segment size 1024)
+
+    Src,  dst  and flags are always present.  The other fields
+    depend on the contents of the packet's tcp protocol header
+    and are output only if appropriate.
+
+UDP packets:
+
+src > dst: udp numbytes
+actinide.who > broadcast.who: udp 84
+
+    This  says that port who on host actinide sent a udp data-
+    gram to port who on host broadcast, the Internet broadcast
+    address.  The packet contained 84 bytes of user data.
+    Some  UDP services are recognized (from the source or des-
+    tination port number) and the higher level protocol infor-
+    mation   printed.
+
+UDP nameserver requests:
+
+src > dst: id op? flags qtype qclass name (len)
+h2opolo.1538 > helios.domain: 3+ A? ucbvax.berkeley.edu. (37)
+
+    Host h2opolo asked the domain  server  on  helios  for  an
+    address  record  (qtype=A)  associated  with the name ucb-
+    vax.berkeley.edu.  The query id was `3'.   The  `+'  indi-
+    cates  the  recursion  desired  flag  was  set.  The query
+    length was 37 bytes, not including the UDP and IP protocol
+    headers.   The  query operation was the normal one, Query,
+    so the op field was omitted.  If the op had been  anything
+    else,  it  would have been printed between the `3' and the
+    `+'.  Similarly, the qclass was the normal one, C_IN,  and
+    omitted.  Any other qclass would have been printed immedi-
+    ately after the `A'.
+
+UDP Name Server Responses
+
+src > dst:  id op rcode flags a/n/au type class data (len)
+helios.domain > h2opolo.1538: 3 3/3/7 A 128.32.137.3 (273)
+helios.domain > h2opolo.1537: 2 NXDomain* 0/1/0 (97)
+
+    In the first example, helios responds to query id  3  from
+    h2opolo with 3 answer records, 3 name server records and 7
+    additional records.  The first answer  record  is  type  A
+    (address)  and  its data is internet address 128.32.137.3.
+    The total size of the response was  273  bytes,  excluding
+    UDP  and  IP  headers.   The  op (Query) and response code
+    (NoError) were omitted, as was the class (C_IN) of  the  A
+    record.
+
+    In  the  second example, helios responds to query 2 with a
+    response code of non-existent domain  (NXDomain)  with  no
+    answers,  one  name  server and no authority records.  The
+    `*' indicates that the authoritative answer bit  was  set.
+    Since  there  were no answers, no type, class or data were
+    printed.
+
+    Note  that  name  server requests and responses tend to be
+    large and the default snaplen of 68 bytes may not  capture
+    enough  of  the  packet  to  print.   Use  the  -s flag to
+    increase the snaplen if you need to seriously  investigate
+    name server traffic.  `-s 128' has worked well for me.
+
+ARP/RARP Packets
+
+arp who-has 192.168.1.69 tell 192.168.1.1
+arp reply 192.168.1.69 is-at 0:50:e4:e0:b3:68
+    The first line says that 192.168.1.1 sent an arp packet asking
+    for the ethernet address of internet host 192.168.1.69.
+    192.168.1.69 replies with its ethernet address.
+
+AARP packets
+
+aarp who-has 255.0.246 tell 255.37.218
+
+    See ARP packets above.  Three-part address is AppleTalk address.
+    AppleTalk addresses usually are written as decimal values separated by a period.
+    For example, 10.1.50 means network 10, node 1, socket 50. This also might be
+    represented as 10.1, socket 50.
+</pre>

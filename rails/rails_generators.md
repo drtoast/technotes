@@ -33,10 +33,10 @@ creates model/view/controller/test
 
 creates controller/views/helpers
 
-    rails g controller CreditCard open debit credit close 
-    
+    rails g controller CreditCard open debit credit close
+
 # migrations
 
     rails g migration AddPartNumberToProducts part_number:string
-    
-    
+
+

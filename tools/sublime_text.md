@@ -20,8 +20,10 @@ lines:
 
 lines:
 
-* delete line (cmd-X)
+* cut current line (cmd-X)
+* delete current line (ctrl-shift-K)
 * move lines up/down (ctrl-cmd-arrow)
+* join lines (cmd-J)
 * insert new line after (cmd-return)
 * insert new line before (cmd-shift-return)
 * duplicate line (cmd-shift-D)
@@ -34,22 +36,25 @@ files/keywords:
 
 * go to anything (cmd-P filename)
 * command palette (cmd-shift-P)
-* go to symbol (cmd-P @foobar)
+* go to symbol (cmd-R foobar, cmd-P @foobar)
 * go to fuzzy text (cmd-P #foobar)
 * go to line number (cmd-P :123, ctrl-G)
 
-search:
+in file:
 
 * search within file (cmd-P#)
-* show/hide console: (ctrl-`)
 
 sidebar/console:
 
+* show/hide console: (ctrl-`)
 * reveal file in sidebar: (alt-.)
 * go to sidebar (ctrl-0)
 * go back to editor (esc)
 * open/close console: (ctrl-`)
 
+# Find/Replace
+
+* replace (cmd-opt-F)
 
 # Packages
 

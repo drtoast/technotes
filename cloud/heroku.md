@@ -32,6 +32,17 @@ capture a backup
     	--tail
     	-n 1500
 
+# Config
+
+    heroku:config
+
+    heroku config:add SOME_VAR=foo
+        --app wellspace-production
+
+# Scale workers
+
+    heroku ps:scale web=2
+
 ### Console setup
 
     heroku login

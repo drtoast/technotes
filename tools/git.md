@@ -57,6 +57,10 @@ http://gitref.org/
 
     git checkout -- file.txt (overwrite working file with latest from repository)
 
+# reset
+
+    git reset --hard HEAD (revert to the last commit, discarding all local changes)
+
 # tag
 
     git tag -a v1.4 -m 'my version 1.4' (make an annotated tag for a version)

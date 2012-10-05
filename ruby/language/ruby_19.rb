@@ -22,10 +22,10 @@ blah = {
 
 ### Duck typing
 class About::DuckTyping
-  
-  # One object walks and talks like another. 
+
+  # One object walks and talks like another.
   # e.g., File and String both respond to <<
-  
+
 end
 
 
@@ -41,9 +41,9 @@ names.map(&:upcase)
 # => ["ANT", "BEE", "CAT"]
 
 class BlockExample
-  CONST = 0 
+  CONST = 0
   @@a = 3
-  def return_closure 
+  def return_closure
     a=1
     @a = 2
     lambda { [ CONST, a, @a, @@a, yield ] }
@@ -54,12 +54,12 @@ class BlockExample
   end
 end
 
-eg = BlockExample.new 
+eg = BlockExample.new
 block = eg.return_closure { "original" }
-block.call 
-# => [0, 1, 2, 3, "original"] 
-eg.change_values 
-block.call 
+block.call
+# => [0, 1, 2, 3, "original"]
+eg.change_values
+block.call
 # => [0, 1, 3, 4, "original"]
 
 
@@ -76,9 +76,9 @@ end
 
 # OR:
 class << animal
-    def speak
-        puts "The #{self} says miaow"
-    end
+  def speak
+    puts "The #{self} says miaow"
+  end
 end
 
 # the "speak" method is in the anonymous class
@@ -90,10 +90,10 @@ animal.upcase
 # => "CAT"
 
 class Test
-    @var = 99
-    class << self
-        attr_accessor :var
-    end
+  @var = 99
+  class << self
+    attr_accessor :var
+  end
 end
 
 
@@ -107,18 +107,18 @@ bo.call 99
 
 # Procs operate in the context in which they were defined.
 # A return from inside a raw block that’s still in scope acts as a return from that scope.
-def meth4 
-  p = Proc.new { return 99 } 
-  p.call 
+def meth4
+  p = Proc.new { return 99 }
+  p.call
   puts "Never get here"
 end
 meth4	# => 99
 
-# A lambda behaves more like a free-standing method body: 
+# A lambda behaves more like a free-standing method body:
 # a return simply returns from the block to the caller of the block:
 def meth5
-  p = lambda { return 99 } 
-  result = p.call 
+  p = lambda { return 99 }
+  result = p.call
   "The block returned #{result}"
 end
 meth5	# => "The block returned 99"
@@ -127,5 +127,5 @@ meth5	# => "The block returned 99"
 
 ### Closures
 
-# Variables in the surrounding scope that are referenced in a block remain accessible 
+# Variables in the surrounding scope that are referenced in a block remain accessible
 # for the life of that block and the life of any Proc object created from that block.

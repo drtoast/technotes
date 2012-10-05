@@ -94,3 +94,4 @@ get latest changes from remote and merge into current branch (in one step)
 # config
 
     git config -l (show configuration)
+    git config remote.origin.url git@github.com:drtoast/technotes.git (change origin url)

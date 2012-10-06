@@ -1,16 +1,34 @@
 http://www.justin.tv/mongodb/videos
+http://www.mongodb.org/
 
-# install mongo
-
-    http://www.mongodb.org/display/DOCS/Quickstart+OS+X
-
-or
+install MongoDB via homebrew:
 
     brew install mongodb
     cp /usr/local/Cellar/mongodb/1.6.3-x86_64/org.mongodb.mongod.plist ~/Library/LaunchAgents
     launchctl load -w ~/Library/LaunchAgents/org.mongodb.mongod.plist
-    
-then open http://localhost:28017/
+
+    # start and stop:
+    launchctl stop org.mongodb.mongod
+    launchctl start org.mongodb.mongod
+
+see if it's running:
+
+    http://localhost:28017/
+
+connect as client and poke around:
+
+    mongo
+    > show dbs
+    > exit
+
+if (when!) MongoDB exits abnormally, you'll need to remove the lockfile and repair the db:
+
+   rm /usr/local/var/mongodb/mongod.lock
+   mongod --repair --dbpath /usr/local/var/mongodb
+
+optionally, edit the default mongodb config file here:
+
+  /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf
 
 # install mongoid
 
@@ -24,10 +42,6 @@ with path to db dir (default is /data/db)
 
     mongod --dbpath ./data/db
 
-# fix db after crash (OS X)
-
-    rm /usr/local/var/mongodb/mongod.lock
-    mongod --repair --config /usr/local/Cellar/mongodb/1.6.3-x86_64/mongod.conf
 
 # connect as client
 

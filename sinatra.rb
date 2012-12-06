@@ -22,7 +22,7 @@ end
 
 # return text
 get '/' do
-  "Hello World #{session['counter']} times!" 
+  "Hello World #{session['counter']} times!"
 end
 
 # return JSON

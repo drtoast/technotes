@@ -19,6 +19,12 @@ end
 ### CHANGING TABLES
 class ChangeProducts < ActiveRecord::Migration
 
+  def change
+    add_column :products, :translator, :boolean, default: false, null: false
+  end
+
+  # OR:
+
   def up
     change_table :products do |t|
       t.remove :description, :name
@@ -28,19 +34,15 @@ class ChangeProducts < ActiveRecord::Migration
       t.timestamps
       t.references :category
     end
-    
-    # OR:
 
     # add:
     add_column :products, :part_number, :string
     add_index :products, :part_number
     create_table :products do |t|
 
-    end
-
     # change:
     change_column
-    change_table 
+    change_table
     rename_column :products, :upccode, :upc_code
 
     # delete:

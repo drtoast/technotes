@@ -1,3 +1,10 @@
+# DEBUGGER
+# add to code:
+debugger;
+# then:
+# node debug thing.js
+
+
 # node index.js
 require('coffee-script');
 require('./lib/server.coffee');

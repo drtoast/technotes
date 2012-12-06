@@ -1,5 +1,9 @@
 stack
 
+Notes:
+    "+" indicates a favored technology
+    "-" indicates a deprecated technology
+
 Zeitgeist
     https://www.ruby-toolbox.com
     http://renderedtext.com/toolbox/
@@ -75,7 +79,7 @@ Ruby
     authentication
         - devise
         omniauth
-        - cancan
+        cancan
         + declarative_authorization https://github.com/stffn/declarative_authorization
         + sorcery https://github.com/NoamB/sorcery/
     security
@@ -93,6 +97,7 @@ Ruby
         perftools.rb
         rvm
         pry https://github.com/pry/pry
+        foreman https://github.com/ddollar/foreman
     server
         rack http://rack.github.com/
         thin http://code.macournoyer.com/thin/

@@ -33,7 +33,7 @@ ORDER BY count DESC;
 -- UPDATE joined rows
 
 UPDATE albums
-LEFT JOIN artists 
+LEFT JOIN artists
 ON albums.artist_id = artists.id
 SET albums.title = 'The White Album', artists.name = 'The Beatles'
 WHERE albums.id = '2';
@@ -48,10 +48,26 @@ WHERE artists.id = 1
 
 -- SELECT DUPLICATE ROWS:
 
-SELECT sku, COUNT(*) AS n 
-FROM items 
+SELECT sku, COUNT(*) AS n
+FROM items
 GROUP BY sku
 HAVING n > 1;
+
+-- find duplicate entries
+select e1.id e1id, e2.id e2id, e1.created_at e1created, e2.created_at e2created, e1.source e1source, e2.source e2source, e1.category, e2.category, e1.measured_on, e1.user_id, e1.metric_id
+from entries e1
+inner join entries e2
+  on e2.measured_on = e1.measured_on
+  and e2.user_id = e1.user_id
+  and e2.metric_id = e1.metric_id
+  and e2.measured_on = e1.measured_on
+  and ((e2.category = e1.category) or (e2.category is null and e1.category is null))
+  and e2.created_at > e1.created_at
+where e1.source != 'Manual'
+  -- and e1.user_id = 23
+  -- and e1.metric_id NOT IN (3)
+;
+
 
 -- DELETE DUPLICATE ROWS: delete duplicates with the greater id
 

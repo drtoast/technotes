@@ -2,8 +2,24 @@
 
 	brew update self
 	brew install postgres
-	initdb /usr/local/var/postgres
+	initdb /usr/local/var/postgres -E utf8
 	# then follow the given instructions to set up a LaunchAgent
+
+# Upgrade to 9.2.1
+
+    launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+    brew upgrade postgres
+    brew info postgres
+
+    mv /usr/local/var/postgres /usr/local/var/postgres.old
+    cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+
+    sudo sysctl -w kern.sysv.shmall=65536
+    sudo sysctl -w kern.sysv.shmmax=16777216
+
+    initdb /usr/local/var/postgres -E utf8
+
+    launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 # USER ADMIN
 
@@ -16,6 +32,7 @@
 console:
 
 	psql postgres
+    create role postgres with superuser;
     select * from pg_database;
     create database foo;
 
@@ -23,6 +40,13 @@ command-line tools:
 
     pg_dump -Ft mydb > db.tar
     pg_restore -d newdb db.tar
+
+list tables:
+
+    SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
+
+
+
 
 # EXPLAIN/ANALYZE
 

@@ -1,3 +1,17 @@
+# Keyboard Shortcuts
+
+Navigation
+
+* focus command bar (s)
+* help (?)
+
+Source code
+
+* file finder (t)
+* jump to line (l)
+* switch branch/tag (w)
+
+
 ## Set up git
 
 git config --global user.name "drtoast"

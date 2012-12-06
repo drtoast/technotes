@@ -43,6 +43,7 @@ files/keywords:
 in file:
 
 * search within file (cmd-P#)
+* page up/down (fn-arrow)
 
 sidebar/console:
 

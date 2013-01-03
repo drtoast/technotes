@@ -8,20 +8,17 @@ require_relative 'trig'
 y = Trig::PI/4
 
 
-### Hashes
+# Hash#merge (h2 wins!)
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+h1.merge(h2)   #=> {"a"=>100, "b"=>254, "c"=>300}
+h1             #=> {"a"=>100, "b"=>200}
 
-# new hash syntax when keys are symbols (like JSON)
-blah = {
-  ok: 'yes',
-  nope: 'nope'
-}
-
-# traditional hash syntax
-blah = {
-  :ok => 'yes',
-  :nope => 'nope'
-}
-
+# Hash#reverse_merge (h1 wins!)
+h1 = { "a" => 100, "b" => 200 }
+h2 = { "b" => 254, "c" => 300 }
+h1.reverse_merge(h2)   #=> {"b"=>200, "c"=>300, "a"=>100}
+h1             #=> {"a"=>100, "b"=>200}
 
 ### Duck typing
 class About::DuckTyping

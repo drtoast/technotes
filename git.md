@@ -23,13 +23,16 @@ http://gitref.org/
 
 # branch
 
-    git branch (show branches)
-        -r  (remote branches)
-        -d  (delete branch)
+    git branch
+        -r  (show remote branches)
+        -d foo (delete branch foo)
+        -r -d origin/foo (delete remote branch foo)
         --merged (show branches that have already been merged)
         --no-merged (show branches that have not been merged)
-        --track something origin/something (track a remote branch)
-        my-branch (create this branch from the current branch)
+        --track something origin/something (create local branch that tracks remote branch)
+        -u origin/something (set the current branch to track remote upstream branch)
+        my-branch (create this branch off the current branch)
+
     git push origin :my-branch (delete remote branch if it's not present locally)
 
 # status

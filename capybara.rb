@@ -1,11 +1,13 @@
 # https://github.com/jnicklas/capybara
 
 
-### DSL
-visit       '/foo/bar'
-click_link  "Recommendation"
-fill_in     'Intervention', :with => 'B – Complex'
-
+### the DSL
+# acceptance test aliases for rspec:
+feature     # alias for describe ..., :type => :feature,
+background  # alias for before
+scenario    # alias for it
+given       # alias for let
+given!      # aliases for let!
 
 # RSpec matchers
 # http://rubydoc.info/github/jnicklas/capybara/Capybara/RSpecMatchers
@@ -20,6 +22,11 @@ page.should have_selector(:xpath, '//table/tr')
 page.should have_table('.foo')
 page.should have_unchecked_field('foo')
 page.should have_xpath('//table/tr')
+
+# NAVIGATING
+
+visit '/foo/bar'
+visit post_comments_path(post)
 
 
 # FINDING elements
@@ -100,7 +107,7 @@ page.should have_no_xpath('a')
 save_and_open_page
 
 # page instance methods:
-:app, :body, :cleanup!, :current_path, :current_url, :document, :driver, 
-:evaluate_script, :execute_script, :method_missing, :mode, :reset!, 
-:response_headers, :save_and_open_page, :source, :status_code, :visit, 
+:app, :body, :cleanup!, :current_path, :current_url, :document, :driver,
+:evaluate_script, :execute_script, :method_missing, :mode, :reset!,
+:response_headers, :save_and_open_page, :source, :status_code, :visit,
 :wait_until, :within, :within_fieldset, :within_frame, :within_table, :within_window

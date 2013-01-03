@@ -3,17 +3,19 @@ http://docs.sublimetext.info/en/latest/index.html
 
 # Selecting
 
-words:
+expand selection:
 
-* select word, more instances (cmd-D)
-* skip current instance (cmd-K)
-* select text within brackets (ctrl-shift-M)
+* to scope (cmd-shift-space)
+* to line (cmd-L)
+* to word (cmd-D), skip current instance (cmd-K)
+* to indentation (cmd-shift-J)
+* to brackets (ctrl-shift-M)
+* to quotes (cmd-shift-Q), https://github.com/kek/sublime-expand-selection-to-quotes
 
-lines:
+multiple selection:
 
-* select line(s) (cmd-L)
 * select lines as multiple selection (cmd-shift-L)
-* select current indentation level (cmd-shift-J)
+* revert to single selection (esc)
 
 
 # Editing
@@ -39,6 +41,7 @@ files/keywords:
 * go to symbol (cmd-R foobar, cmd-P @foobar)
 * go to fuzzy text (cmd-P #foobar)
 * go to line number (cmd-P :123, ctrl-G)
+* move tab (cmd-alt-shift-left) https://github.com/sublimetext/movetab
 
 in file:
 
@@ -53,9 +56,16 @@ sidebar/console:
 * go back to editor (esc)
 * open/close console: (ctrl-`)
 
+
 # Find/Replace
 
-* replace (cmd-opt-F)
+* find all and select in current file (cmd-F, opt-return)
+* find all and replace in current file (cmd-opt-F)
+* find all in multiple files (cmd-shift-F)
+* toggle regexp (cmd-opt-R)
+* toggle case sensitivity (cmd-opt-C)
+* toggle whole word (cmd-opt-W)
+
 
 # Packages
 

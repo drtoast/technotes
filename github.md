@@ -5,6 +5,7 @@ Navigation
 * focus command bar (s)
 * help (?)
 
+
 Source code
 
 * file finder (t)

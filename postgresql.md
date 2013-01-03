@@ -45,7 +45,9 @@ list tables:
 
     SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
 
+# Database log
 
+    tail -f /usr/local/var/postgres/server.log
 
 
 # EXPLAIN/ANALYZE

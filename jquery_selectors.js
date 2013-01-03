@@ -23,11 +23,11 @@ function within_context() {
 }
 
 function basic_selectors() {
-    // by id: 
+    // by id:
     $("#timer-bar").css("border","3px solid blue");
-    // by class: 
+    // by class:
     $(".handle").css("border","3px solid red");
-    // by tag name: 
+    // by tag name:
     $("title");
     $("ul");
     $("div").css("border","9px solid red");
@@ -36,65 +36,65 @@ function basic_selectors() {
 }
 
 function hierarchy_selectors() {
-    // child: 
+    // child:
     $("ul.topnav > li").css("border", "3px double red");
-    // descendant: 
+    // descendant:
     $("form input").css("border", "2px dotted blue");
-    // next to: 
+    // next to:
     $("label + input").css("color", "blue").val("Labeled!");
-    // siblings: 
+    // siblings:
     $("#prev ~ div").css("border", "3px groove blue");
 }
 
 function position_filters() {
-    // first: 
+    // first:
     $("tr:first").css("font-style", "italic");
-    // last: 
+    // last:
     $("tr:last").css({backgroundColor: 'yellow', fontWeight: 'bolder'});
-    // not: 
+    // not:
     $("input:not(:checked) + span").css("background-color", "yellow");
-    // even: 
+    // even:
     $("tr:even").css("background-color", "#bbbbff");
-    // odd: 
+    // odd:
     $("tr:odd").css("background-color", "#bbbbff");
-    // by index: 
+    // by index:
     $("td:eq(2)").css("color", "red");
-    // greater than index: 
+    // greater than index:
     $("td:gt(4)").css("text-decoration", "line-through");
-    // less than index: 
+    // less than index:
     $("td:lt(4)").css("color", "red");
-    // header(h1,h2,etc): 
+    // header(h1,h2,etc):
     $(":header").css({ background:'#CCC', color:'blue' });
 }
 
 function content_filters() {
-    // contains text: 
+    // contains text:
     $("div:contains('John')").css("text-decoration", "underline");
-    // empty (no children): 
+    // empty (no children):
     $("td:empty").text("Was empty!").css('background', 'rgb(255,220,200)');
-    // has matching element: 
+    // has matching element:
     $("div:has(p)").addClass("test");
-    // parent: 
+    // parent:
     $("td:parent").fadeTo(1500, 0.3);
 }
 
 function visibility_filters() {
-    // hidden: 
+    // hidden:
     $("div:hidden").show(3000);
-    // visible: 
+    // visible:
     // $("div:visible").click(function ()...
 }
 
 function attribute_filters() {
-    // has attribute: 
+    // has attribute:
     $("div[id]")
-    // equals this value: 
+    // equals this value:
     $("input[name='newsletter']").next().text(" is newsletter");
-    // does not equal this value: 
+    // does not equal this value:
     $("input[name!=newsletter]").next().append("<b>; not newsletter</b>");
-    // starts with: 
+    // starts with:
     $("input[name^='news']").val("news here!");
-    // ends with: 
+    // ends with:
     $("input[name$='letter']").val("a letter");
     // contains string:
     $('input[name*="man"]').val('has man in it!');
@@ -102,57 +102,57 @@ function attribute_filters() {
     $('input[name~="man"]').val('mr. man is in it!');
     // equals, or starts with plus hyphen ("en" or "en-us")
     $('a[hreflang|="en"]').css('border','3px dotted green');
-    // multiple attributes: 
+    // multiple attributes:
     $("input[id][name$='man']").val("only this one");
 }
 
 function child_filters() {
-    // nth child: 
+    // nth child:
     $("ul li:nth-child(2)").append("<span> - 2nd!</span>");
-    // first child: 
+    // first child:
     $("div span:first-child").css("text-decoration", "underline");
-    // last child: 
+    // last child:
     $("div span:last-child").css({color:"red", fontSize:"80%"})
-    // only child: 
+    // only child:
     $("div button:only-child").text("Alone").css("border", "2px blue solid");
 }
 
 function form_selectors() {
-    // inputs: 
+    // inputs:
     $(":input");
-    // text: 
+    // text:
     $("form input:text").css({background:"yellow", border:"3px red solid"});
-    // radio: 
+    // radio:
     $("form input:radio").wrap('<span></span>').parent().css({background:"yellow", border:"3px red solid"});
-    // checkbox: 
+    // checkbox:
     $("form :checkbox");
-    // submit: 
+    // submit:
     $(":submit").parent('td');
-    // image: 
+    // image:
     $(":image");
-    // reset: 
+    // reset:
     $(":reset");
-    // button: 
+    // button:
     $(":button");
-    // file: 
+    // file:
     $(":file");
 }
 
 function form_filters() {
-    // enabled: 
+    // enabled:
     $("input:enabled").val("this is it");
-    // disabled: 
+    // disabled:
     $("input:disabled").val("this is it");
-    // checked: 
+    // checked:
     $("input:checked").length;
-    // selected: 
+    // selected:
     $("select option:selected");
 }
 
 function refine_found_set() {
-    // search all descendants: 
+    // search all descendants:
     $('#timer').find('a');
-    // filter the initial results: 
+    // filter the initial results:
     $('#timer').filter('div').fadeIn();
 }
 

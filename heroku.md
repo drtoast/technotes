@@ -39,7 +39,13 @@ capture a backup
     heroku config:add SOME_VAR=foo
         --app wellspace-production
 
-# Scale workers
+# Workers
+
+list workers
+
+    heroku ps
+
+scale workers up/down
 
     heroku ps:scale web=2
 

@@ -6,6 +6,10 @@
 
     launchctl list
 
+columns:
+
+    pid  exitstatus  label
+
 # Start/stop a loaded job
 
     launchctl stop org.mongodb.mongod

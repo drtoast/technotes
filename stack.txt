@@ -151,6 +151,9 @@ Operations
         nagios
         - god
         hoptoad
+    cloud services
+        pusher http://pusher.com/
+        tempodb http://tempo-db.com/
     server
         apache
         goliath

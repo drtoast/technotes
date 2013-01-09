@@ -29,3 +29,12 @@
 # Exit
 
     .quit
+
+# Repair a damaged db
+
+    sqlite3 development.sqlite3
+    sqlite> .output dump.sql
+    sqlite> .dump
+    sqlite> .quit
+
+    cat dump.sql | sqlite3 new.sqlite3

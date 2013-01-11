@@ -39,6 +39,10 @@ capture a backup
     heroku config:add SOME_VAR=foo
         --app wellspace-production
 
+# JRuby
+
+    heroku config:add BUILDPACK_URL=https://github.com/jruby/heroku-buildpack-jruby
+
 # Workers
 
 list workers
@@ -49,7 +53,7 @@ scale workers up/down
 
     heroku ps:scale web=2
 
-### Console setup
+# Console setup
 
     heroku login
 

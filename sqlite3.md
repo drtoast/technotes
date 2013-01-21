@@ -1,3 +1,7 @@
+# Documentation
+
+http://www.sqlite.org/sqlite.html
+
 # Open a database
 
     sqlite3 something.db
@@ -14,7 +18,7 @@
 
     .output somefile.txt
 
-# Export all columns
+# Export all columns as text
 
     SELECT * FROM message;
 
@@ -28,6 +32,13 @@
 
 # Exit
 
+    .quit
+
+# Export a table as SQL
+
+    .mode insert posts
+    .out posts.sql
+    select * from posts;
     .quit
 
 # Repair a damaged db

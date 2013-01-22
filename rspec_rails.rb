@@ -1,4 +1,5 @@
 # http://relishapp.com/rspec
+# http://rubydoc.info/gems/rspec-rails/frames
 
 
 ### Models
@@ -12,6 +13,7 @@ model.should have(:no).errors_on(:attribute)
 model.should have(1).error_on(:attribute)
 model.should have(3).errors_on(:attribute)
 
+
 # Mocks - create an instance of a fake class (not an ActiveModel instance)
 car = mock_model("Car")
 car.should be_a(Car)
@@ -21,6 +23,7 @@ let(:widget) do
                       :save => true,
                       :update_attributes => false
 end
+
 
 # Stubs - create an instance of a real ActiveModel class
 let(:widget) do
@@ -32,7 +35,7 @@ widget.id.should eql(5)
 
 ### Controllers
 # views are stubbed as empty string by default. This will actually render views:
-render_views true
+render_views
 
 get :index
 response.code.should eq("200")

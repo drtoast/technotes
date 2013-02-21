@@ -1,12 +1,3 @@
-<pre>
-Monitor all ethernet traffic:
-sudo tcpdump -i en0
-
-Monitor all establishing connections (only show packets with "SYN" flag set):
-sudo tcpdump -i en0 'tcp[13] == 2'
-
-
-
 TCP/IP OVERVIEW:
 
 
@@ -393,4 +384,3 @@ aarp who-has 255.0.246 tell 255.37.218
     AppleTalk addresses usually are written as decimal values separated by a period.
     For example, 10.1.50 means network 10, node 1, socket 50. This also might be
     represented as 10.1, socket 50.
-</pre>

@@ -1,8 +1,17 @@
 // http://www.youtube.com/watch?v=4mf_yNLlgic
 // http://code.google.com/chrome/devtools/docs/console.html
 
-// open console: command-option-j
 // show XMLHttpRequests, preserve log: control-click
+
+/*
+KEYBOARD SHORTCUTS:
+
+* toggle dev tools (cmd-opt-i)
+* toggle dev tools and open console (cmd-opt-j)
+* show shortcuts (?)
+* go to prev/next panel (cmd-[, cmd-])
+*/
+
 
 // print time between events
 console.time('ajax');

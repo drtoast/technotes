@@ -86,7 +86,7 @@ Ruby
     authorization
         - cancan
         - declarative_authorization https://github.com/stffn/declarative_authorization
-        roll your own http://www.elabs.se/blog/52-simple-authorization-in-ruby-on-rails-apps
+        + pundit https://github.com/elabs/pundit
     security
         attr_encrypted https://github.com/shuber/attr_encrypted
     export
@@ -175,6 +175,7 @@ Operations
         puppet
     continuous integration
         + semaphore
+        + circle ci
         teamcity
         jenkins
     automation

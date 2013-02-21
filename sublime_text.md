@@ -1,4 +1,31 @@
-http://docs.sublimetext.info/en/latest/index.html
+# Sublime Text 3 compatible packages
+
+* https://github.com/wbond/sublime_package_control/wiki/Sublime-Text-3-Compatible-Packages
+
+
+# Install packages manually
+
+    git clone https://github.com/wbond/sublime_package_control.git "Package Control"
+    cd "Package Control"
+    git checkout python3
+
+    cd ~/Library/Application Support/Sublime Text 3/Packages
+    git clone git://github.com/kemayo/sublime-text-2-git.git Git
+    cd Git
+    git checkout python3
+
+    cd ~/Library/Application Support/Sublime Text 3/Packages
+    git clone https://github.com/SublimeLinter/SublimeLinter.git
+    cd SublimeLinter
+    git checkout sublime-text-3
+
+    git clone git://github.com/facelessuser/FuzzyFileNav.git
+    cd FuzzyFileNav
+    git checkout ST3
+
+# Help
+
+* http://docs.sublimetext.info/en/latest/index.html
 
 
 # Selecting
@@ -38,10 +65,12 @@ files/keywords:
 
 * go to anything (cmd-P filename)
 * command palette (cmd-shift-P)
-* go to symbol (cmd-R foobar, cmd-P @foobar)
+* go to symbol in file (cmd-R foobar, cmd-P @foobar)
+* go to symbol in project (cmd-shift-R)
 * go to fuzzy text (cmd-P #foobar)
 * go to line number (cmd-P :123, ctrl-G)
 * move tab (cmd-alt-shift-left) https://github.com/sublimetext/movetab
+* go to definition (cmd-opt-down)
 
 in file:
 

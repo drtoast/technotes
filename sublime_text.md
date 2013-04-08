@@ -1,27 +1,25 @@
 # Sublime Text 3 compatible packages
 
-* https://github.com/wbond/sublime_package_control/wiki/Sublime-Text-3-Compatible-Packages
+* `https://github.com/wbond/sublime_package_control/wiki/Sublime-Text-3-Compatible-Packages`
 
 
 # Install packages manually
+
+    cd ~/Library/Application Support/Sublime Text 3/Packages
 
     git clone https://github.com/wbond/sublime_package_control.git "Package Control"
     cd "Package Control"
     git checkout python3
 
-    cd ~/Library/Application Support/Sublime Text 3/Packages
     git clone git://github.com/kemayo/sublime-text-2-git.git Git
     cd Git
     git checkout python3
 
-    cd ~/Library/Application Support/Sublime Text 3/Packages
+    https://github.com/SublimeLinter/SublimeLinter/pull/358
     git clone https://github.com/SublimeLinter/SublimeLinter.git
     cd SublimeLinter
     git checkout sublime-text-3
 
-    git clone git://github.com/facelessuser/FuzzyFileNav.git
-    cd FuzzyFileNav
-    git checkout ST3
 
 # Help
 

@@ -1,9 +1,35 @@
-# install and create a database cluster
+# useful bits
+
+http://postgres-bits.herokuapp.com/
+
+# install
 
 	brew update self
 	brew install postgres
+
+    # create a database cluster
 	initdb /usr/local/var/postgres -E utf8
-	# then follow the given instructions to set up a LaunchAgent
+
+	# set up a LaunchAgent:
+    mkdir -p ~/Library/LaunchAgents
+    cp /usr/local/Cellar/postgresql/9.1.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+    launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+    # increase shared memory (now)
+    sudo sysctl -w kern.sysv.shmall=65536
+    sudo sysctl -w kern.sysv.shmmax=16777216
+
+    # increase shared memory (effective on reboot)
+    # /etc/sysctl.conf:
+    kern.sysv.shmall=65536
+    kern.sysv.shmmax=16777216
+
+    # add the socket postgres is expecting (mountain lion sets /var/pgsql_socket_alt)
+    mkdir /var/pgsql_socket
+    sudo chown $USER /var/pgsql_socket
+
+    # in /usr/local/var/postgres/postgresql.conf
+    unix_socket_directory = '/var/pgsql_socket'
 
 # Upgrade to 9.2.1
 
@@ -14,11 +40,7 @@
     mv /usr/local/var/postgres /usr/local/var/postgres.old
     cp /usr/local/Cellar/postgresql/9.2.1/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 
-    sudo sysctl -w kern.sysv.shmall=65536
-    sudo sysctl -w kern.sysv.shmmax=16777216
-
     initdb /usr/local/var/postgres -E utf8
-
     launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 # USER ADMIN
@@ -44,6 +66,10 @@ command-line tools:
 list tables:
 
     SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
+
+show table schema:
+
+    \d table_name;
 
 # Database log
 

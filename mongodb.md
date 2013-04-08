@@ -49,3 +49,10 @@ http://www.mongodb.org/
 
     http://docs.mongodb.org/manual/administration/configuration/
 
+# Returning a random record
+
+Why can't you do an $or instead of 2 queries?
+
+    { $or: [ { rand: { $lte: random_val } }, { rand: { $gte: random_val } } ] }
+
+The problem is that to ensure an even distribution, you really need to find the one record that is closest to the target random value. The random value is indexed in ascending order, which is crucial. Example: there may be one indexed value that is just barely greater than the target, which you would correctly encounter in an index scan if you were only doing a $gte. But adding $lte via the $or criteria, a value less than the random target may be encountered first during that index scan. And that will always be the first value in the index.

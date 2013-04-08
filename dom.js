@@ -1,11 +1,12 @@
-// SEE .JS FILES IN technotes/javascript/dom/
+// https://developer.mozilla.org/en-US/docs/Gecko_DOM_Reference
+
 
 function dialogs() {
-    // Alert box with "OK" button:  
+    // Alert box with "OK" button:
     alert("sometext");
-    // Confirm box with "OK/Cancel", returns true or false: 
+    // Confirm box with "OK/Cancel", returns true or false:
     confirm("sometext");
-    // Prompt box with text field, "OK/Cancel": 
+    // Prompt box with text field, "OK/Cancel":
     prompt("sometext","defaultvalue");
 }
 

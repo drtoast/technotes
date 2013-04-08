@@ -1,10 +1,21 @@
 # rspec - BDD
 # http://www.pragprog.com/titles/achbd/the-rspec-book
 
-### COMMAND LINE OPTIONS
-# show test and group names:
-# rspec -f d
+def command_line_options
+  # show test and group names:
+  `rspec -f d`
+end
 
+def pending_examples
+  it 'does something' do
+    pending 'an announcement'
+    # any code after the pending statement will not be run
+  end
+
+  xit 'does something' do
+    # this will not be run
+  end
+end
 
 ### BASICS
 
@@ -31,16 +42,6 @@ describe "Examples with no docstrings generate their own:" do
   # output: "should include 2"
   specify { [1,2,3].should respond_to(:size) }
   # output: "should respond to #size"
-end
-
-# game.rb
-class Game
-  def roll(pins)
-  end
-
-  def score
-    0
-  end
 end
 
 # $ rspec game_spec.rb --color --format doc

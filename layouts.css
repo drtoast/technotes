@@ -1,20 +1,42 @@
 /*
+http://learnlayout.com
 http://www.alistapart.com/articles/css-positioning-101
 http://www.quirksmode.org/css/position.html
 
 3 techniques: positioning, float, and width/margin
-
-BOX MODEL:
-content -> padding -> border -> margin
-
 */
 
+#box-model {
+  /* content(width/height) + padding + border + margin */
+  width: 100px;
+  height: 100px; /* rendered element is 100x100 */
+  padding: 10px; /* rendered element is 120x120 */
+  border: 1px solid black; /* rendered element is 122x122 */
+  margin: 10px; /* rendered element is 122x122, but takes up 142x142 */
+}
 
+#box-sizing {
+  box-sizing: border-box; /* defined width includes border */
+  width: 100px;
+  height: 100px; /* rendered element is 100x100 */
+  padding: 10px; /* rendered element is 100x100 */
+  border: 1px solid black; /* rendered element is 100x100 */
+  margin: 10px; /* rendered element is 100x100, but takes up 110x110 */
+}
 
-/* POSITION */
-.foo {
+#display {
+  /* https://developer.mozilla.org/en-US/docs/CSS/display */
+  /* http://www.quirksmode.org/css/display.html */
+  display: inline; /* no linebreak before or after the element */
+  display: block; /* linebreak before and after the element */
+  display: inline-block; /* no linebreak before or after, but contents behave like block */
+  display: none; /* leave no space where the element would have been */
+  display: table;
+}
+
+#position {
   position: static;
-  /* default positioning.
+  /* default positioning, aka "not positioned"
      elements stack on top of each other according to "normal flow" of document.
      NO top/left/bottom/right declarations possible.
   */
@@ -28,7 +50,7 @@ content -> padding -> border -> margin
   position: absolute;
   /* can position anywhere without affecting other elements
      the "normal flow" of other elements act like this element isn't there
-     context is first containing block that is not "static"
+     context is first containing block that is "positioned" (anything not "static")
   */
 
   position: fixed;
@@ -43,25 +65,19 @@ content -> padding -> border -> margin
 }
 
 
-/* DISPLAY */
-/* http://www.quirksmode.org/css/display.html */
-.foo {
-  display: inline; /* no linebreak before or after the element */
-  display: block; /* linebreak before and after the element */
-  display: inline-block; /* no linebreak before or after, but contents behave like block */
-  display: none;
-  display: table;
+#visibility {
+  visibility: none; /* hide the element and leave empty space */
 }
 
-/* FLOAT */
-.foo {
+
+#float {
   float: left; /* element adheres to the margin to its left, any following content flows around it */
   clear: left; /* cancel any float: left declarations */
 }
 
 
-/* OVERFLOW: describes how content should be rendered when larger than containing elemnt */
-.foo {
+#overflow {
+  /* describes how content should be rendered when larger than containing elemnt */
   overflow: visible; /* overflowing content will bleed into adjacent elements */
   overflow: hidden; /* overflowing content will be removed from the view */
   overflow: scroll; /* overflowing content will scroll vertically and horizontally */
@@ -70,19 +86,21 @@ content -> padding -> border -> margin
   overflow-y: hidden; /* hide overflow in the y axis */
 }
 
-/* PADDING: creates gutters of negative space, never collapses */
-.foo {
+#padding {
+  /* creates gutters of negative space, never collapses */
   padding: 0;
 }
+
 html, body {
   margin: 0; padding: 0; /* by default, browser adds 10px of margin to body */
 }
 
-/* MARGIN: */
-.foo {
+#margin {
   margin: 5px 10px 15px 20px; /* CLOCKWISE: top right bottom left */
   margin: 5px 10px 15px; /* top right&left bottom */
   margin: 5px 10px; /* top&bottom right&left */
+  margin: 0 auto; /* center horizontally */
   margin-bottom: -1.5em; /* negative margins cause element's computed box to bleed into whatever is adjacent */
+
 }
 

@@ -107,6 +107,13 @@ get latest changes from remote and merge into current branch (in one step)
 
     git pull [origin master]
 
+# cherry-pick
+
+apply the changes introduced by existing commits to the current branch
+
+    git cherry-pick 10e90e10dad0df69f44b898c6708080d0c8979c7
+
+
 # config
 
     git config -l (show configuration)

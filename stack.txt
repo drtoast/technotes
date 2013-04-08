@@ -15,27 +15,27 @@ Examples
 
 Testing
     javascript
-        jasmine / jasmine-headless-webkit http://pivotal.github.com/jasmine/
+        + jasmine / jasmine-headless-webkit http://pivotal.github.com/jasmine/
         sinon.js http://sinonjs.org/
     ruby
         + rspec https://www.relishapp.com/rspec/
         + guard https://github.com/guard/guard/
-        - delorean
         + timecop
-        - mocha https://github.com/freerange/mocha
         + webmock https://github.com/bblimke/webmock/
-        fake_web
-        factory_girl
+        + factory_girl
         vcr
+        - fake_web
+        - mocha https://github.com/freerange/mocha
+        - delorean
     browser
-        capybara
-        - capybara-headless-webkit https://github.com/jnicklas/capybara/
         + poltergeist https://github.com/jonleighton/poltergeist
+        capybara
         cucumber http://cukes.info/
+        - capybara-headless-webkit https://github.com/jnicklas/capybara/
 
 JavaScript
     MVC
-        backbone.js
+        + backbone.js
         ember.js
         meteor.js
         tower.js http://towerjs.org/ (coffeescript, coffeekup, ember, bootstrap)
@@ -51,9 +51,10 @@ JavaScript
         d3.js
 
     utility
-        jquery
-        underscore.js
-        coffeescript
+        + jquery
+        + underscore.js
+        + coffeescript
+        + moment http://momentjs.com
         sprockets
         uglifier
     templating
@@ -62,67 +63,70 @@ JavaScript
         underscore.js
         rivets.js http://rivetsjs.com/
         jst / eco
+    ui
+        chosen http://harvesthq.github.com/chosen/
 
 Web
     HTML
-        haml http://haml.info/
         + slim slim-lang.com
+        - haml http://haml.info/
     CSS
-        sass
         + less http://lesscss.org/
         + bootstrap twitter.github.com/bootstrap/
+        - sass
 
 Ruby
     MVC
-        sinatra
-        rails http://rubyonrails.org/
+        + rails http://rubyonrails.org/
+        + sinatra
     graphics
         imagemagick
         macruby / coreimage / coregraphics
     authentication
-        - devise
-        omniauth
         + sorcery https://github.com/NoamB/sorcery/
+        omniauth
+        - devise
     authorization
-        - cancan
+        cancan
         - declarative_authorization https://github.com/stffn/declarative_authorization
-        + pundit https://github.com/elabs/pundit
+        ? pundit https://github.com/elabs/pundit
     security
         attr_encrypted https://github.com/shuber/attr_encrypted
     export
+        + pdfkit https://github.com/pdfkit/pdfkit
         axslx https://github.com/randym/axlsx
         - wicked_pdf https://github.com/mileszs/wicked_pdf
-        + pdfkit https://github.com/pdfkit/pdfkit
     api
-        typhoeus
-        - httparty
         + faraday https://github.com/technoweenie/faraday
+        + typhoeus
+        + nokogiri http://nokogiri.org/
+        + jbuilder (json) https://github.com/rails/jbuilder
         savon (soap) https://github.com/rubiii/savon
-        nokogiri http://nokogiri.org/
-        jbuilder (json) https://github.com/rails/jbuilder
+        - httparty
     devtools
+        + pow http://pow.cx
+        + pry https://github.com/pry/pry
+        + rvm
         perftools.rb
-        rvm
-        pry https://github.com/pry/pry
         foreman https://github.com/ddollar/foreman
     server
         rack http://rack.github.com/
         thin http://code.macournoyer.com/thin/
     in-place editing
-        - rest_in_place https://github.com/janv/rest_in_place
         x-editable (in-place editing) http://vitalets.github.com/x-editable/
+        - rest_in_place https://github.com/janv/rest_in_place
     misc
-        kaminari (pagination)
+        + kaminari (pagination)
+        + state_machine https://github.com/pluginaweek/state_machine
         rollout, rollout-ui (feature switches)
-        state_machine https://github.com/pluginaweek/state_machine
         jekyll
         middleman http://middlemanapp.com/
-        - heroku_san https://github.com/fastestforward/heroku_san
         draper (decorators) https://github.com/drapergem/draper
+        - heroku_san https://github.com/fastestforward/heroku_san
 
 Process
     project management
-        pivotal tracker
+        + pivotal tracker
         skype
         basecamp
     tools
@@ -130,45 +134,45 @@ Process
         chrome web developer http://chrispederick.com/work/web-developer/
         foreman (process management)
     scm
-        git
-        github
+        + git
+        + github
     editors
+        + sublime text
         vim/janus https://github.com/carlhuda/janus/
         rubymine
-        + sublime text
         - textmate
 
 Datastore
     SQL
-        mysql
         + postgresql http://www.postgresql.org/docs/9.1/interactive/index.html
         sqlite3
+        - mysql
     NoSQL
         + redis http://redis.io/
-        mongodb http://www.mongodb.org/
+        + mongodb http://www.mongodb.org/
         memcache
         couchdb
 
 Operations
     hosting
-        heroku
+        + heroku
         rackspace
         engineyard
         route 53 (amazon DNS)
         ec2
     monitoring
         + newrelic
+        + airbrake
         nagios
         - god
-        + airbrake
     cloud services
         pusher http://pusher.com/
         tempodb http://tempo-db.com/
     server
+        + unicorn
         apache
         goliath
         nginx
-        unicorn
         passenger
     configuration
         chef
@@ -179,7 +183,7 @@ Operations
         teamcity
         jenkins
     automation
-        resque https://github.com/defunkt/resque/
+        + resque https://github.com/defunkt/resque/
         sidekiq https://github.com/mperham/sidekiq/
 
 Search

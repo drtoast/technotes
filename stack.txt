@@ -35,9 +35,11 @@ Testing
 
 JavaScript
     MVC
-        + backbone.js
+        + AngularJS http://angularjs.org
+        - backbone.js
         ember.js
         meteor.js
+        hoodie http://hood.ie
         tower.js http://towerjs.org/ (coffeescript, coffeekup, ember, bootstrap)
     graphics
         three.js
@@ -64,6 +66,8 @@ JavaScript
         rivets.js http://rivetsjs.com/
         jst / eco
     ui
+        AngularUI http://angular-ui.github.io/
+        UI Bootstrap http://angular-ui.github.io/bootstrap/
         chosen http://harvesthq.github.com/chosen/
 
 Web
@@ -133,6 +137,8 @@ Process
         graphviz
         chrome web developer http://chrispederick.com/work/web-developer/
         foreman (process management)
+        livereload http://livereload.com/ (and chrome extension)
+
     scm
         + git
         + github

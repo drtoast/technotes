@@ -2,9 +2,10 @@
 
 Navigation
 
-* focus command bar (s)
+* focus command bar (s or /)
 * help (?)
-
+* pull requests (user/repo pulls)
+* wiki (user/repo wiki)
 
 Source code
 

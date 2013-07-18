@@ -8,7 +8,7 @@ Some of the following commands could be simplified using git flow.
 
     git checkout development
     git pull
-    
+
     git checkout release
     git merge development
     git push origin release

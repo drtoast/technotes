@@ -65,8 +65,4 @@ expect(fn).toThrow(e);          // passes if function fn throws exception e when
 
 // CUSTOM MATCHERS
 
-beforeEach(function() {
-  this.addMatchers({
-    toBeVisible: function() { return this.actual.isVisible(); }
-  });
-});
+

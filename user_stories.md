@@ -1,3 +1,36 @@
+# http://dannorth.net/introducing-bdd/
+# http://dannorth.net/whats-in-a-story/
+# Writing stories for behavior-driven development (BDD):
+
+Title
+
+As a [role]
+I want [feature]
+So that [benefit]
+
+Acceptance criteria: # (presented as Scenarios)
+
+Scenario 1:
+Given [context]
+And [some more context]
+When [event]
+Then [outcome]
+And [another outcome]
+
+
+# Bugs are different:
+
+Scenario 1: Reproducing [bug]
+
+Given [context]
+And [some more context]
+When [event]
+Then [bad things happen]
+
+
+
+# http://www.agilemodeling.com/artifacts/userStory.htm
+
 # Informal user stories
 
 examples:

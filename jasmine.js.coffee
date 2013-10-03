@@ -13,12 +13,14 @@ matchers = ->
   expect(x).toContain(y) # passes if array or string x contains y
   expect(x).toBeLessThan(y) # passes if x is less than y
   expect(x).toBeGreaterThan(y) # passes if x is greater than y
+  expect(x).toBeCloseTo(y, 0.2) # passes if x is within 0.2 of y
   expect(-> fn()).toThrow(e) # passes if function fn throws exception e when executed
 
   # custom:
   beforeEach ->
     @addMatchers
-      toBeVisible: -> @actual.isVisible()
+      toBeLessThan: (expected) ->
+        @actual < expected
 
 jquery_matchers = ->
   # https://github.com/velesin/jasmine-jquery

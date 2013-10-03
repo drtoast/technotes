@@ -1,3 +1,8 @@
+## 8/7 meeting notes
+
+* tmux
+
+
 ## Setup
 
 * https://github.com/carlhuda/janus (yehuda's sensible defaults)
@@ -17,7 +22,7 @@
 * <ESC> :help [term]
 
 ## Navigation
- 
+
 by character:
 
 * use arrow keys, or h(left), j(down), k(up), l(right)

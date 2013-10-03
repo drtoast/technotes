@@ -2,7 +2,6 @@
 
 * `https://github.com/wbond/sublime_package_control/wiki/Sublime-Text-3-Compatible-Packages`
 
-
 # Install packages manually
 
     cd ~/Library/Application Support/Sublime Text 3/Packages
@@ -86,7 +85,7 @@ sidebar/console:
 
 # Find/Replace
 
-* find all and select in current file (cmd-F, opt-return)
+* find all and select in current file (cmd-D, cmd-F, opt-return)
 * find all and replace in current file (cmd-opt-F)
 * find all in multiple files (cmd-shift-F)
 * toggle regexp (cmd-opt-R)

@@ -1,3 +1,4 @@
+
 https://devcenter.heroku.com/categories/command-line
 
 # Rake
@@ -42,6 +43,11 @@ capture a backup
 # JRuby
 
     heroku config:add BUILDPACK_URL=https://github.com/jruby/heroku-buildpack-jruby
+
+# Remote
+
+    git remote add heroku git@heroku.com:your-app-name.git
+    git config heroku.remote heroku
 
 # Workers
 

@@ -35,6 +35,7 @@ http://postgres-bits.herokuapp.com/
 
     launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
     brew upgrade postgres
+
     brew info postgres
 
     mv /usr/local/var/postgres /usr/local/var/postgres.old
@@ -46,7 +47,7 @@ http://postgres-bits.herokuapp.com/
 # USER ADMIN
 
 	psql postgres
-	create user postgres with superuser
+	create role postgres SUPERUSER LOGIN CREATEDB CREATEROLE;
 	\q
 
 # DATABASE ADMIN

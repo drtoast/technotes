@@ -1,6 +1,9 @@
 stack
 
 Readme:
+    subledger: (in-app accounting API) http://subledger.com/
+    egghead.io: (tutorials) http://egghead.io/
+    zurb: (css framework) http://foundation.zurb.com/
     dropzone: https://github.com/enyo/dropzone
     restangular: https://github.com/mgonto/restangular
     requirejs: http://requirejs.org/
@@ -8,6 +11,10 @@ Readme:
     rubber: (deploy rails to EC2) https://github.com/rubber/rubber
     rubber: http://railscasts.com/episodes/347-rubber-and-amazon-ec2
     jsbin: http://jsbin.com/
+    ngrok: (expose localhost to internet) https://ngrok.com/
+    clojure/clojurescript: https://developers.google.com/closure/
+    react: http://facebook.github.io/react/
+    bacon: (functional reactive js) http://baconjs.github.io/
 
 Notes:
     "+" indicates a favored technology
@@ -22,6 +29,9 @@ Reference
     html: http://htmldog.com/
     html: https://developer.mozilla.org/en-US/docs/Web/HTML
     css: https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference
+
+Resources
+    datasets: http://www.infochimps.com/
 
 Examples
     social rails app: https://github.com/diaspora/diaspora

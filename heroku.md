@@ -6,23 +6,11 @@ https://devcenter.heroku.com/categories/command-line
     heroku run rake
       --app foobar
 
-# Database
+# Postgres Database
 
-load remote database into local app
+Upgrades and migrations with changeovers:
 
-    heroku db:pull
-    	--app wfx-demo
-    	--resume pull_201205020140.dat
-
-open a console
-
-    heroku pg:psql
-      --app wellspace-production
-
-capture a backup
-
-    heroku pgbackups:capture
-      --app wellspace-production
+heroku addons:add heroku-postgresql:crane --follow HEROKU_POSTGRESQL_WHITE_URL --app sushi
 
 # Logs
 
@@ -38,7 +26,7 @@ capture a backup
     heroku:config
 
     heroku config:add SOME_VAR=foo
-        --app wellspace-production
+        --app appname
 
 # JRuby
 
@@ -58,16 +46,3 @@ list workers
 scale workers up/down
 
     heroku ps:scale web=2
-
-# Console setup
-
-    heroku login
-
-    Enter your Heroku credentials.
-    Email: you@example.com
-    Password: xxxxxx
-    Found existing public key: /Users/you/.ssh/id_dsa.pub
-    Would you like to associate it with your Heroku account? [Yn] Y
-    Uploading ssh public key /Users/you/.ssh/id_dsa.pub
-    Ruby console for wfx.heroku.com
-

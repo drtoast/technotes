@@ -45,6 +45,12 @@ http://gitref.org/
         file.txt (stage one file)
         . (stage all changed files)
 
+# clean
+
+    git clean
+        -d (remove untracked directories too)
+        -f (force)
+
 # reset
 
     git reset
@@ -84,6 +90,12 @@ http://gitref.org/
 # clone
 
     git clone git@github.com:sheetmusicplus/smp.git
+
+# clean
+
+remove all new files in the working directory:
+
+    git clean -fdx
 
 # remote
 

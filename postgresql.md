@@ -1,7 +1,3 @@
-# useful bits
-
-http://postgres-bits.herokuapp.com/
-
 # install
 
 	brew update self
@@ -44,33 +40,31 @@ http://postgres-bits.herokuapp.com/
     initdb /usr/local/var/postgres -E utf8
     launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-# USER ADMIN
-
-	psql postgres
-	create role postgres SUPERUSER LOGIN CREATEDB CREATEROLE;
-	\q
 
 # DATABASE ADMIN
 
-console:
+* connect to postgres db      `psql postgres`
+* create superuser "postgres" `CREATE ROLE postgres SUPERUSER LOGIN CREATEDB CREATEROLE;`
+* connect as user "postgres"  `psql -U postgres`
+* connect to table "users"    `\c users`
+* show relations              `\d`
+* show table schema           `\d users`
+* show all databases          `\list`
+* show all databases          `SELECT * FROM pg_database;`
 
-	psql postgres
-    create role postgres with superuser;
-    select * from pg_database;
-    create database foo;
+# SQL
+
+  CREATE DATABASE users;
+  \c users;
+  CREATE TABLE users (name varchar);
+  INSERT INTO users (name) values ('Alice');
+
 
 command-line tools:
 
     pg_dump -Ft mydb > db.tar
     pg_restore -d newdb db.tar
 
-list tables:
-
-    SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';
-
-show table schema:
-
-    \d table_name;
 
 # Database log
 
@@ -104,8 +98,6 @@ show table schema:
     SELECT sum(salary) OVER w, avg(salary) OVER w
     FROM empsalary
     WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
-
-# CONSOLE (psql)
 
 * toggle vertical format (\x)
 * quit (\q)

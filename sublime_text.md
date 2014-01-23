@@ -86,7 +86,7 @@ sidebar/console:
 # Find/Replace
 
 * find all and select in current file (cmd-D, cmd-F, opt-return)
-* find all and replace in current file (cmd-opt-F)
+* find all and replace in current file (cmd-opt-F, ctrl-opt-return)
 * find all in multiple files (cmd-shift-F)
 * toggle regexp (cmd-opt-R)
 * toggle case sensitivity (cmd-opt-C)

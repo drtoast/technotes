@@ -1,4 +1,5 @@
 ###
+http://www.ng-newsletter.com/posts/how-to-learn-angular.html
 http://angularjs.org
 http://docs.angularjs.org/api/
 http://jsfiddle.net/api/post/library/pure/

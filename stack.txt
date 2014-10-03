@@ -1,6 +1,9 @@
 stack
 
 Readme:
+    lotus: (web framework) http://lotusrb.org/
+    gulp: (asset preprocessor) http://gulpjs.com/
+    generator-angular-fullstack + browserify + bookshelf.js (not can)
     subledger: (in-app accounting API) http://subledger.com/
     egghead.io: (tutorials) http://egghead.io/
     zurb: (css framework) http://foundation.zurb.com/
@@ -15,6 +18,7 @@ Readme:
     clojure/clojurescript: https://developers.google.com/closure/
     react: http://facebook.github.io/react/
     bacon: (functional reactive js) http://baconjs.github.io/
+    zeus: (fast app/spec startup) https://github.com/burke/zeus
 
 Notes:
     "+" indicates a favored technology
@@ -24,6 +28,7 @@ Zeitgeist
     https://www.ruby-toolbox.com
     http://renderedtext.com/toolbox/
     http://www.everyjs.com/
+    http://www.javascriptoo.com/
 
 Reference
     html: http://htmldog.com/
@@ -88,7 +93,7 @@ JavaScript
     templating
         mustache.js
         handlebars.js
-        
+
         underscore.js
         rivets.js http://rivetsjs.com/
         jst / eco

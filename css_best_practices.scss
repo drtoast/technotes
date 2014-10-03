@@ -1,0 +1,82 @@
+// SMACSS CATEGORIES
+// https://smacss.com/book/categorizing
+
+// base:
+/*
+  Defaults, single-attribute selectors
+*/
+html, body, form { margin: 0; padding: 0; }
+input[type=text] { border: 1px solid #999; }
+a { color: #039 }
+a:hover { color: #03C; }
+
+// layout
+/*
+  Divides page into sections. Hold one or more modules together.
+  Only major components such as a header or footer.
+  Use an ID or prefix with "layout"
+*/
+.layout-left-column { margin-left: 0px; }
+.layout-top-nav { margin-top: 0px; }
+
+#article { float: left; }
+.layout-flipped #article { float: right; }
+
+
+// module
+/*
+  Reusable, modular parts of our design.
+  This is the bulk of the project.
+  Avoid IDs and element electors.
+  Prefix with name of module.
+*/
+
+.example { }
+.example-caption { }
+.example-body { }
+.field {
+  // related elements within module use the base name as a prefix
+  .field-name { }
+}
+.callout.is-collapsed { }
+
+// subclassing modules
+// <div class="pod pod-callout">...</div>
+.pod { color: #fff; width: 100%; }
+.pod-callout { width: 200px; }
+
+
+// state
+/*
+  Describe how a module might look in different views or states.
+  Prefix with "is"
+  Include the module name
+*/
+.tab { background-color: purple; }
+.is-tab-hidden { display: none; }
+.is-tab-collapsed { height: 10px; }
+
+// or, attribute selectors
+.tab[data-state=hidden] { display: none; }
+.tab[dta-state=collapsed] { height: 10px; }
+
+// state changes via media query should live in each module:
+// modules/nav.scss
+.nav > li { float: left; }
+@media screen and (max-width: 400px) {
+  .nav > li { float: none; }
+}
+
+// modules/content.scss
+.content { float: left; }
+@media screen and (max-width: 400px) {
+  .content { float: none; }
+}
+
+
+// grouping properties
+// Box
+// Border
+// Background
+// Text
+// Other

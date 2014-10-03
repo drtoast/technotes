@@ -20,16 +20,6 @@ https://developers.google.com/chrome-developer-tools/docs/tips-and-tricks
 * Select object and look at list of retainers in retaining tree
 
 
-# Debugger
-
-* continue (cmd /)
-* step over (cmd ')
-* step into (cmd ;)
-* step out (shift cmd ;)
-* next call frame (ctrl .)
-* prev call frame (ctrl ,)
-
-
 # Styles
 
 * show all allowed property values (ctrl-space)

@@ -35,6 +35,9 @@ http://gitref.org/
 
     git push origin :my-branch (delete remote branch if it's not present locally)
 
+    git branch
+      --merged | grep -v "\*" | xargs -n 1 git branch -d
+
 # status
 
     git status (show status of files)

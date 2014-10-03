@@ -1,0 +1,3 @@
+-- drop column
+ALTER TABLE t1 DROP COLUMN c, DROP COLUMN d;
+

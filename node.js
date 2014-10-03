@@ -1,3 +1,11 @@
+// README
+
+/*
+Node.js In Action Chapter 6 - Testing
+http://krakenjs.com
+
+*/
+
 // DEBUGGER
 
 // add to code:
@@ -39,9 +47,23 @@ install a module into ./node_modules:
 
 install a module globally:
     npm install express -g
-*/
 
-var passport = require('passport'), // authentication middleware
-    facebook = require('passport-facebook'), // facebook oauth strategy
-    moment = require('moment'), // date formatting and math
-    marked = require('marked'), // markdown parsing
+list outdated modules
+    npm outdated -g
+
+view module info
+    npm view yo
+
+update module
+    npm update -g yo
+
+
+
+*/
+// NPM MODULES
+
+'passport' // authentication middleware
+'passport-facebook' // facebook oauth strategy
+'moment' // date formatting and math
+'marked' // markdown parsing
+'formidable' // handle multipart forms

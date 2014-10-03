@@ -9,6 +9,7 @@ http://support.google.com/mail/bin/answer.py?hl=en&ctx=mail&answer=6594
 * go to inbox (g i)
 * search (/)
 * compose (c)
+* go to next/previous tab (`~)
 
 # Conversations view:
 

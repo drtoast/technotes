@@ -1,19 +1,3 @@
-# Keyboard Shortcuts
-
-Navigation
-
-* focus command bar (s or /)
-* help (?)
-* pull requests (user/repo pulls)
-* wiki (user/repo wiki)
-
-Source code
-
-* file finder (t)
-* jump to line (l)
-* switch branch/tag (w)
-
-
 ## Set up git
 
 git config --global user.name "drtoast"

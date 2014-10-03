@@ -46,3 +46,35 @@ list workers
 scale workers up/down
 
     heroku ps:scale web=2
+
+# Deploy
+
+Acceptance:
+
+    git checkout develop
+    git merge features/my-branch develop
+    rake
+      # verify specs pass
+    git push origin develop
+      # in web UI, pause heroku scheduler
+    heroku maintenance:on --app my-app-acceptance
+    git push acceptance develop:master
+    heroku run rake db:migrate --app my-app-acceptance
+      # run any one-off rake tasks
+    heroku maintenance:off --app my-app-acceptance
+      # in web UI, enable heroku scheduler
+
+Production:
+
+    git checkout master
+    git merge develop
+    rake
+      # verify specs pass
+      # in web UI, pause heroku scheduler
+    git push origin master
+    heroku maintenance:on --app my-app
+    git push production master
+    heroku run rake db:migrate --app my-app
+      # run any one-off rake tasks
+    heroku maintenance:off --app my-app
+      # in web UI, enable heroku scheduler
